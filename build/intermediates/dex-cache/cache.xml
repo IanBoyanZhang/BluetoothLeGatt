@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/Users/ianzhang/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/23.0.0/support-annotations-23.0.0.jar"
+        jumboMode="false"
+        revision="23.0.0"
+        sha1="990e7f98a7bad86a40b1f0bcfeb039023afd0839">
+        <dex dex="/Users/ianzhang/MakerSquare/BluetoothLeGatt/Application/build/intermediates/pre-dexed/debug/support-annotations-23.0.0-709278afb55f254d0b9fd6e0d3e88f4d1dbbea57.jar" />
+    </item>
+    <item
+        jar="/Users/ianzhang/MakerSquare/BluetoothLeGatt/Application/build/intermediates/exploded-aar/com.android.support/support-v4/23.0.0/jars/libs/internal_impl-23.0.0.jar"
+        jumboMode="false"
+        revision="23.0.0"
+        sha1="8bd336eeae661e8311330284897ee07f8ebaa297">
+        <dex dex="/Users/ianzhang/MakerSquare/BluetoothLeGatt/Application/build/intermediates/pre-dexed/debug/internal_impl-23.0.0-a9efc80a87db7beee91ae6040f91dc2e69699315.jar" />
+    </item>
+    <item
+        jar="/Users/ianzhang/MakerSquare/BluetoothLeGatt/Application/build/intermediates/exploded-aar/com.android.support/cardview-v7/23.0.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.0"
+        sha1="1ccbc26be2c465c622a48310e8092241b01abe80">
+        <dex dex="/Users/ianzhang/MakerSquare/BluetoothLeGatt/Application/build/intermediates/pre-dexed/debug/classes-d3bb822369928dda139ea5f9fb2978485b7efec5.jar" />
+    </item>
+    <item
+        jar="/Users/ianzhang/MakerSquare/BluetoothLeGatt/Application/build/intermediates/exploded-aar/com.android.support/support-v13/23.0.0/jars/libs/internal_impl-23.0.0.jar"
+        jumboMode="false"
+        revision="23.0.0"
+        sha1="5d4bccb885c8a89d066ecb6c4addb553a99a79a2">
+        <dex dex="/Users/ianzhang/MakerSquare/BluetoothLeGatt/Application/build/intermediates/pre-dexed/debug/internal_impl-23.0.0-43655d74c6e3454d0a9356567d8784b0854d9178.jar" />
+    </item>
+    <item
+        jar="/Users/ianzhang/MakerSquare/BluetoothLeGatt/Application/build/intermediates/exploded-aar/com.android.support/support-v4/23.0.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.0"
+        sha1="8413c27b45b7fe61dca4a98159f65e2cee215f5a">
+        <dex dex="/Users/ianzhang/MakerSquare/BluetoothLeGatt/Application/build/intermediates/pre-dexed/debug/classes-5aaa4111c2028f6e5ffec1756cea3449e92a9f88.jar" />
+    </item>
+    <item
+        jar="/Users/ianzhang/MakerSquare/BluetoothLeGatt/Application/build/intermediates/exploded-aar/com.android.support/support-v13/23.0.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.0"
+        sha1="bb0ac3f3ee2d71854501cc28e52cc84a20209b41">
+        <dex dex="/Users/ianzhang/MakerSquare/BluetoothLeGatt/Application/build/intermediates/pre-dexed/debug/classes-0d4dd335b1434ad51eb8682962e5b66a6fcda41c.jar" />
+    </item>
+
+</items>
