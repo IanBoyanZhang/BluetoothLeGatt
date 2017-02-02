@@ -106,7 +106,7 @@ public class DeviceControlActivity extends Activity {
                 clearUI();
             } else if (BluetoothLeService.ACTION_GATT_SERVICES_DISCOVERED.equals(action)) {
                 // Show all the supported services and characteristics on the user interface.
-                displayGattServices(mBluetoothLeService.getSupportedGattServices());
+//                displayGattServices(mBluetoothLeService.getSupportedGattServices());
             } else if (BluetoothLeService.ACTION_DATA_AVAILABLE.equals(action)) {
                 displayData(intent.getStringExtra(BluetoothLeService.EXTRA_DATA));
             }
@@ -148,7 +148,7 @@ public class DeviceControlActivity extends Activity {
     };
 
     private void clearUI() {
-        //mGattServicesList.setAdapter((SimpleExpandableListAdapter) null);
+//        mGattServicesList.setAdapter((SimpleExpandableListAdapter) null);
         mDataField.setText(R.string.no_data);
     }
 
@@ -202,6 +202,7 @@ public class DeviceControlActivity extends Activity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
+        Log.d(TAG, "GATT: " + " I AM HERE");
         getMenuInflater().inflate(R.menu.gatt_services, menu);
         if (mConnected) {
             menu.findItem(R.id.menu_connect).setVisible(false);
@@ -286,7 +287,9 @@ public class DeviceControlActivity extends Activity {
             mGattCharacteristics.add(charas);
             gattCharacteristicData.add(gattCharacteristicGroupData);
         }
-//
+
+//        BluetoothGattCharacteristic gatt
+
 //        SimpleExpandableListAdapter gattServiceAdapter = new SimpleExpandableListAdapter(
 //                this,
 //                gattServiceData,
@@ -298,6 +301,7 @@ public class DeviceControlActivity extends Activity {
 //                new String[] {LIST_NAME, LIST_UUID},
 //                new int[] { android.R.id.text1, android.R.id.text2 }
 //        );
+
 //        mGattServicesList.setAdapter(gattServiceAdapter);
     }
 

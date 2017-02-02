@@ -69,6 +69,8 @@ public class BluetoothLeService extends Service {
 
 //    Service UUID
     public final static UUID UUID_HID = UUID.fromString("00001812-0000-1000-8000-00805f9b34fb");
+
+//    public final static UUID UUID_HID = UUID.fromString("00001835-0000-1000-8000-00805f9b34fb");
 //    Characteristic UUID
     public final static UUID UUID_HID_REPORT = UUID.fromString("00002a4d-0000-1000-8000-00805f9b34fb");
 
@@ -101,15 +103,33 @@ public class BluetoothLeService extends Service {
         public void onServicesDiscovered(BluetoothGatt gatt, int status) {
             if (status == BluetoothGatt.GATT_SUCCESS) {
                 broadcastUpdate(ACTION_GATT_SERVICES_DISCOVERED);
-                BluetoothGattService service = gatt.getService(UUID_HID);
-//                BluetoothGattCharacteristic gattCharacteristic = service.getCharacteristic(UUID_HID_REPORT);
-                List<BluetoothGattCharacteristic> gattCharacteristics = service.getCharacteristics();
+//                Debug only
+//                List<BluetoothGattService> gattServices = getSupportedGattServices();
+//                for (BluetoothGattService gattService: gattServices) {
+//                    Debug only
+//                    List<BluetoothGattCharacteristic> gattCharacteristics = gattService.getCharacteristics();
+//                    Log.d(TAG, "GATT-CHAR: " + gattCharacteristics.toString());
+//                    for (BluetoothGattCharacteristic gattCharacteristic: gattCharacteristics) {
+//                        Log.d(TAG, "GATT_SINGLE: " + gattCharacteristic.getUuid());
+//                    }
 
+//                }
+
+                BluetoothGattService gattService = mBluetoothGatt.getService(UUID_HID);
+                List<BluetoothGattCharacteristic> gattCharacteristics = gattService.getCharacteristics();
+//                Log.d(TAG, "GATT-CHAR: " + gattCharacteristics.toString());
                 for (BluetoothGattCharacteristic gattCharacteristic: gattCharacteristics) {
-//                    Log.d(TAG, "GATT" + gattCharacteristic.getValue());
-//                    Log.d(TAG, "GATT" + gattCharacteristic);
-                }
+//                    Log.d(TAG, "GATT_SINGLE: " + gattCharacteristic.getUuid());
 
+//                    TODO: refactor below using setCharacteristicNotification style function
+                    BluetoothGattDescriptor descriptor = gattCharacteristic.getDescriptor(UUID_CLIENT_CHAR_CONFIG);
+//                    Log.d(TAG, "GATT_DES" + descriptor);
+//                    Preliminary Filtering
+                    if (descriptor != null) {
+                        descriptor.setValue(BluetoothGattDescriptor.ENABLE_NOTIFICATION_VALUE);
+                        mBluetoothGatt.writeDescriptor(descriptor);
+                    }
+                }
             } else {
                 Log.w(TAG, "onServicesDiscovered received: " + status);
             }
