@@ -35,6 +35,7 @@ import android.util.Log;
 import java.util.List;
 import java.util.UUID;
 import java.lang.Boolean;
+import java.lang.Byte;
 
 /**
  * Service for managing connection and data communication with a GATT server hosted on a
@@ -122,13 +123,16 @@ public class BluetoothLeService extends Service {
 //                    Log.d(TAG, "GATT_SINGLE: " + gattCharacteristic.getUuid());
 
 //                    TODO: refactor below using setCharacteristicNotification style function
-                    BluetoothGattDescriptor descriptor = gattCharacteristic.getDescriptor(UUID_CLIENT_CHAR_CONFIG);
-//                    Log.d(TAG, "GATT_DES" + descriptor);
-//                    Preliminary Filtering
-                    if (descriptor != null) {
-                        descriptor.setValue(BluetoothGattDescriptor.ENABLE_NOTIFICATION_VALUE);
-                        mBluetoothGatt.writeDescriptor(descriptor);
-                    }
+//                    BluetoothGattDescriptor descriptor = gattCharacteristic.getDescriptor(UUID_CLIENT_CHAR_CONFIG);
+////                    Log.d(TAG, "GATT_DES" + descriptor);
+////                    Preliminary Filtering
+//                    if (descriptor != null) {
+//                        descriptor.setValue(BluetoothGattDescriptor.ENABLE_NOTIFICATION_VALUE);
+//                        mBluetoothGatt.writeDescriptor(descriptor);
+//                    }
+
+
+                    setCharacteristicNotification(gattCharacteristic, true);
                 }
             } else {
                 Log.w(TAG, "onServicesDiscovered received: " + status);
@@ -139,8 +143,12 @@ public class BluetoothLeService extends Service {
         public void onCharacteristicRead(BluetoothGatt gatt,
                                          BluetoothGattCharacteristic characteristic,
                                          int status) {
+            Log.d(TAG, "GATT_READ!!");
             if (status == BluetoothGatt.GATT_SUCCESS) {
                 broadcastUpdate(ACTION_DATA_AVAILABLE, characteristic);
+                //        This function returns the stored value for this characteristic as retrieved by calling readCharacteristic(BluetoothGattCharacteristic).
+                //        Or mBluetoothGatt.getValue(); ?
+                byte[] result = characteristic.getValue();
             }
         }
 
@@ -148,6 +156,9 @@ public class BluetoothLeService extends Service {
         public void onCharacteristicChanged(BluetoothGatt gatt,
                                             BluetoothGattCharacteristic characteristic) {
             broadcastUpdate(ACTION_DATA_AVAILABLE, characteristic);
+
+            Log.d(TAG, "GATT_UPDATE!");
+            readCharacteristic(characteristic);
         }
     };
 
