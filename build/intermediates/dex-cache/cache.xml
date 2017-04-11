@@ -2,76 +2,112 @@
 <items version="2" >
 
     <item
-        is-multidex="true"
-        jar="/Users/weisi/.android/build-cache/80611f8568e01daa3ddc3c8c312284f52e2e49ae/output/jars/classes.jar"
-        jumboMode="true"
+        is-multidex="false"
+        jar="/Users/weisi/android-sdks/extras/m2repository/com/android/support/constraint/constraint-layout-solver/1.0.2/constraint-layout-solver-1.0.2.jar"
+        jumboMode="false"
         optimize="true"
         revision="25.0.2"
-        sha1="1ccbc26be2c465c622a48310e8092241b01abe80">
-        <dex dex="/Users/weisi/Android/BluetoothLeGatt/Application/build/intermediates/transforms/dex/debug/folders/1000/10/classes_a303bfeb436eafb1fd393f0b5f49890038809af7/classes.dex" />
+        sha1="b9cd8fc6bd15cb915735d34535db30ece0c44603">
+        <dex dex="/Users/weisi/Android/BluetoothLeGatt/app/build/intermediates/pre-dexed/debug/constraint-layout-solver-1.0.2_1d4083c942ba82e35a0b49dc94cbf12d0024d269.jar" />
     </item>
     <item
-        is-multidex="true"
-        jar="/Users/weisi/android-sdks/extras/android/m2repository/com/android/support/support-annotations/23.0.0/support-annotations-23.0.0.jar"
-        jumboMode="true"
+        is-multidex="false"
+        jar="/Users/weisi/.android/build-cache/beed26d0be8c214cf1a1dc7f95506c8933bc6154/output/jars/classes.jar"
+        jumboMode="false"
         optimize="true"
         revision="25.0.2"
-        sha1="990e7f98a7bad86a40b1f0bcfeb039023afd0839">
-        <dex dex="/Users/weisi/Android/BluetoothLeGatt/Application/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-23.0.0_bc0f20790be6844a9684f3602cc32b93312e82b3/classes.dex" />
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="/Users/weisi/Android/BluetoothLeGatt/app/build/intermediates/pre-dexed/debug/classes_bfdf9b47ca270b5772f67aa0d9b4f4457c8d5f91.jar" />
     </item>
     <item
-        is-multidex="true"
-        jar="/Users/weisi/Android/BluetoothLeGatt/Application/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
-        jumboMode="true"
+        is-multidex="false"
+        jar="/Users/weisi/.android/build-cache/d3f42210f597b5d1c2436235447cb1a6ed747c1a/output/jars/classes.jar"
+        jumboMode="false"
         optimize="true"
         revision="25.0.2"
-        sha1="7ff799d93c9863d2570016fc14fe14fb900d1d94">
-        <dex dex="/Users/weisi/Android/BluetoothLeGatt/Application/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_030c88179692e45f52f60384019153329ad97bab/classes.dex" />
+        sha1="150252b33b00274cc868578ade018fda0d43a3eb">
+        <dex dex="/Users/weisi/Android/BluetoothLeGatt/app/build/intermediates/pre-dexed/debug/classes_4afe03df4de1e16dc74c96d51243d8e2ca638445.jar" />
     </item>
     <item
-        is-multidex="true"
-        jar="/Users/weisi/.android/build-cache/7d90e03e263ca4700de8b0ec989764c96ea64ca4/output/jars/classes.jar"
-        jumboMode="true"
+        is-multidex="false"
+        jar="/Users/weisi/.android/build-cache/a460faa2bdfb9940ecfe1a1641c509eb7276897d/output/jars/classes.jar"
+        jumboMode="false"
         optimize="true"
         revision="25.0.2"
-        sha1="bb0ac3f3ee2d71854501cc28e52cc84a20209b41">
-        <dex dex="/Users/weisi/Android/BluetoothLeGatt/Application/build/intermediates/transforms/dex/debug/folders/1000/10/classes_0d170f4f56fbe3a3fdd22fd34fecebb6700b9816/classes.dex" />
+        sha1="efb8cb62d47d157c29d1521daac7eefd4cb881ee">
+        <dex dex="/Users/weisi/Android/BluetoothLeGatt/app/build/intermediates/pre-dexed/debug/classes_7b8f593e3ba048b869363778e4743cdff3d30699.jar" />
     </item>
     <item
-        is-multidex="true"
-        jar="/Users/weisi/Android/BluetoothLeGatt/Application/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
-        jumboMode="true"
+        is-multidex="false"
+        jar="/Users/weisi/.android/build-cache/7e89587ebd7e5f13181fdd041c26a7972a21229d/output/jars/classes.jar"
+        jumboMode="false"
         optimize="true"
         revision="25.0.2"
-        sha1="c82741bc129dd5f99f11a4ab8666ae24262053b6">
-        <dex dex="/Users/weisi/Android/BluetoothLeGatt/Application/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_27369d5e17bcd8b2ab0533a33928216269eee558/classes.dex" />
+        sha1="44ee06abb66da30f5855e6bf54574e64cdcd982a">
+        <dex dex="/Users/weisi/Android/BluetoothLeGatt/app/build/intermediates/pre-dexed/debug/classes_f90c71db2f09c55522cdbdedd782bb4fb4eadd19.jar" />
     </item>
     <item
-        is-multidex="true"
-        jar="/Users/weisi/.android/build-cache/ae200a686fe5221e8d8fbc116b3492cdee9cdbba/output/jars/libs/internal_impl-23.0.0.jar"
-        jumboMode="true"
+        is-multidex="false"
+        jar="/Users/weisi/android-sdks/extras/android/m2repository/com/android/support/support-annotations/25.3.1/support-annotations-25.3.1.jar"
+        jumboMode="false"
         optimize="true"
         revision="25.0.2"
-        sha1="8bd336eeae661e8311330284897ee07f8ebaa297">
-        <dex dex="/Users/weisi/Android/BluetoothLeGatt/Application/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-23.0.0_42606a24bcae8a3469025292b380a9a03fc25527/classes.dex" />
+        sha1="bf8841d29fa39e077730e7a91222c2ce269fa7c9">
+        <dex dex="/Users/weisi/Android/BluetoothLeGatt/app/build/intermediates/pre-dexed/debug/support-annotations-25.3.1_fbc75eca2b30673c505f7b62cbfa766773c8b7f1.jar" />
     </item>
     <item
-        is-multidex="true"
-        jar="/Users/weisi/.android/build-cache/7d90e03e263ca4700de8b0ec989764c96ea64ca4/output/jars/libs/internal_impl-23.0.0.jar"
-        jumboMode="true"
+        is-multidex="false"
+        jar="/Users/weisi/.android/build-cache/762eb418863c75d8150349becaba2769c6839aaf/output/jars/classes.jar"
+        jumboMode="false"
         optimize="true"
         revision="25.0.2"
-        sha1="5d4bccb885c8a89d066ecb6c4addb553a99a79a2">
-        <dex dex="/Users/weisi/Android/BluetoothLeGatt/Application/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-23.0.0_73855deed44a750e266bcd7631ee26ab6320c7df/classes.dex" />
+        sha1="052f5f840f21174a3ecf6544130194e2652cbb73">
+        <dex dex="/Users/weisi/Android/BluetoothLeGatt/app/build/intermediates/pre-dexed/debug/classes_7b62cabd0e517e1f181740079d27e85d850f5b96.jar" />
     </item>
     <item
-        is-multidex="true"
-        jar="/Users/weisi/.android/build-cache/ae200a686fe5221e8d8fbc116b3492cdee9cdbba/output/jars/classes.jar"
-        jumboMode="true"
+        is-multidex="false"
+        jar="/Users/weisi/.android/build-cache/988a890eb9c9d131f6332a5192a991eb1f2da89d/output/jars/classes.jar"
+        jumboMode="false"
         optimize="true"
         revision="25.0.2"
-        sha1="8413c27b45b7fe61dca4a98159f65e2cee215f5a">
-        <dex dex="/Users/weisi/Android/BluetoothLeGatt/Application/build/intermediates/transforms/dex/debug/folders/1000/10/classes_1f3f55af658469a4eb562299f43d955303b3cd4d/classes.dex" />
+        sha1="47635644d0d5c103c1dd8360549eb9ba3225c7d3">
+        <dex dex="/Users/weisi/Android/BluetoothLeGatt/app/build/intermediates/pre-dexed/debug/classes_2393cc74bb2dfae61fa422361c2d807d3872c70d.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/weisi/.android/build-cache/d828182e7da8ddd26a8d10c396315ee6e27bfb1c/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="da27a32db6af8954ee8061537c7d476fcb1df46f">
+        <dex dex="/Users/weisi/Android/BluetoothLeGatt/app/build/intermediates/pre-dexed/debug/classes_ee837d068299e85fd13fc7ec6929748c2873bc4d.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/weisi/.android/build-cache/1cede65cf14f20256dac888654dff188d36cd62b/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="6ef31f1555bb4cc513ec8d52711365a8b89f3600">
+        <dex dex="/Users/weisi/Android/BluetoothLeGatt/app/build/intermediates/pre-dexed/debug/classes_eb456c3c7baa45699c084acbb3ec93c045a7e123.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/weisi/.android/build-cache/b2da35bd338d8514a001eeec2ba61fa5342adc3f/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="4a26a1154d053ab11aaf4c3967c42a4d66390991">
+        <dex dex="/Users/weisi/Android/BluetoothLeGatt/app/build/intermediates/pre-dexed/debug/classes_020c030dce511437201ae08c4870fbd58d27440d.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/weisi/.android/build-cache/bede0d81a7d0dc0b7a2b115adda18a0ee0b257dc/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="45f697922e6f072daa12f8a2995dc77ab03c11da">
+        <dex dex="/Users/weisi/Android/BluetoothLeGatt/app/build/intermediates/pre-dexed/debug/classes_c724ddb8de61dcf28a7ed5485f7821c13f255bee.jar" />
     </item>
 
 </items>
