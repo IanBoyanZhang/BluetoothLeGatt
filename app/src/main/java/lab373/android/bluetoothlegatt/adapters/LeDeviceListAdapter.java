@@ -2,6 +2,7 @@ package lab373.android.bluetoothlegatt.adapters;
 
 import android.bluetooth.BluetoothDevice;
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,11 +24,12 @@ public class LeDeviceListAdapter extends BaseAdapter {
     private ArrayList<BluetoothDevice> mLeDevices;
     OnDeviceSelectedListener listener;
 
+    private final static String TAG = LeDeviceListAdapter.class.getSimpleName();
+
     public LeDeviceListAdapter(Context mContext, ArrayList<BluetoothDevice> mLeDevices, OnDeviceSelectedListener listener) {
         this.mContext = mContext;
         this.mLeDevices = mLeDevices;
         this.listener = listener;
-
     }
 
     public void addDevice(BluetoothDevice device) {
