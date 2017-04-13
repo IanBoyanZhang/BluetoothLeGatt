@@ -2,46 +2,112 @@
 <items version="2" >
 
     <item
-        jar="/Users/ianzhang/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/23.0.0/support-annotations-23.0.0.jar"
+        is-multidex="false"
+        jar="/Users/weisi/android-sdks/extras/m2repository/com/android/support/constraint/constraint-layout-solver/1.0.2/constraint-layout-solver-1.0.2.jar"
         jumboMode="false"
-        revision="23.0.0"
-        sha1="990e7f98a7bad86a40b1f0bcfeb039023afd0839">
-        <dex dex="/Users/ianzhang/MakerSquare/BluetoothLeGatt/Application/build/intermediates/pre-dexed/debug/support-annotations-23.0.0-709278afb55f254d0b9fd6e0d3e88f4d1dbbea57.jar" />
+        optimize="true"
+        revision="25.0.2"
+        sha1="b9cd8fc6bd15cb915735d34535db30ece0c44603">
+        <dex dex="/Users/weisi/Android/BluetoothLeGatt/app/build/intermediates/pre-dexed/debug/constraint-layout-solver-1.0.2_1d4083c942ba82e35a0b49dc94cbf12d0024d269.jar" />
     </item>
     <item
-        jar="/Users/ianzhang/MakerSquare/BluetoothLeGatt/Application/build/intermediates/exploded-aar/com.android.support/support-v4/23.0.0/jars/libs/internal_impl-23.0.0.jar"
+        is-multidex="false"
+        jar="/Users/weisi/.android/build-cache/beed26d0be8c214cf1a1dc7f95506c8933bc6154/output/jars/classes.jar"
         jumboMode="false"
-        revision="23.0.0"
-        sha1="8bd336eeae661e8311330284897ee07f8ebaa297">
-        <dex dex="/Users/ianzhang/MakerSquare/BluetoothLeGatt/Application/build/intermediates/pre-dexed/debug/internal_impl-23.0.0-a9efc80a87db7beee91ae6040f91dc2e69699315.jar" />
+        optimize="true"
+        revision="25.0.2"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="/Users/weisi/Android/BluetoothLeGatt/app/build/intermediates/pre-dexed/debug/classes_bfdf9b47ca270b5772f67aa0d9b4f4457c8d5f91.jar" />
     </item>
     <item
-        jar="/Users/ianzhang/MakerSquare/BluetoothLeGatt/Application/build/intermediates/exploded-aar/com.android.support/cardview-v7/23.0.0/jars/classes.jar"
+        is-multidex="false"
+        jar="/Users/weisi/.android/build-cache/d3f42210f597b5d1c2436235447cb1a6ed747c1a/output/jars/classes.jar"
         jumboMode="false"
-        revision="23.0.0"
-        sha1="1ccbc26be2c465c622a48310e8092241b01abe80">
-        <dex dex="/Users/ianzhang/MakerSquare/BluetoothLeGatt/Application/build/intermediates/pre-dexed/debug/classes-d3bb822369928dda139ea5f9fb2978485b7efec5.jar" />
+        optimize="true"
+        revision="25.0.2"
+        sha1="150252b33b00274cc868578ade018fda0d43a3eb">
+        <dex dex="/Users/weisi/Android/BluetoothLeGatt/app/build/intermediates/pre-dexed/debug/classes_4afe03df4de1e16dc74c96d51243d8e2ca638445.jar" />
     </item>
     <item
-        jar="/Users/ianzhang/MakerSquare/BluetoothLeGatt/Application/build/intermediates/exploded-aar/com.android.support/support-v13/23.0.0/jars/libs/internal_impl-23.0.0.jar"
+        is-multidex="false"
+        jar="/Users/weisi/.android/build-cache/a460faa2bdfb9940ecfe1a1641c509eb7276897d/output/jars/classes.jar"
         jumboMode="false"
-        revision="23.0.0"
-        sha1="5d4bccb885c8a89d066ecb6c4addb553a99a79a2">
-        <dex dex="/Users/ianzhang/MakerSquare/BluetoothLeGatt/Application/build/intermediates/pre-dexed/debug/internal_impl-23.0.0-43655d74c6e3454d0a9356567d8784b0854d9178.jar" />
+        optimize="true"
+        revision="25.0.2"
+        sha1="efb8cb62d47d157c29d1521daac7eefd4cb881ee">
+        <dex dex="/Users/weisi/Android/BluetoothLeGatt/app/build/intermediates/pre-dexed/debug/classes_7b8f593e3ba048b869363778e4743cdff3d30699.jar" />
     </item>
     <item
-        jar="/Users/ianzhang/MakerSquare/BluetoothLeGatt/Application/build/intermediates/exploded-aar/com.android.support/support-v4/23.0.0/jars/classes.jar"
+        is-multidex="false"
+        jar="/Users/weisi/.android/build-cache/7e89587ebd7e5f13181fdd041c26a7972a21229d/output/jars/classes.jar"
         jumboMode="false"
-        revision="23.0.0"
-        sha1="8413c27b45b7fe61dca4a98159f65e2cee215f5a">
-        <dex dex="/Users/ianzhang/MakerSquare/BluetoothLeGatt/Application/build/intermediates/pre-dexed/debug/classes-5aaa4111c2028f6e5ffec1756cea3449e92a9f88.jar" />
+        optimize="true"
+        revision="25.0.2"
+        sha1="44ee06abb66da30f5855e6bf54574e64cdcd982a">
+        <dex dex="/Users/weisi/Android/BluetoothLeGatt/app/build/intermediates/pre-dexed/debug/classes_f90c71db2f09c55522cdbdedd782bb4fb4eadd19.jar" />
     </item>
     <item
-        jar="/Users/ianzhang/MakerSquare/BluetoothLeGatt/Application/build/intermediates/exploded-aar/com.android.support/support-v13/23.0.0/jars/classes.jar"
+        is-multidex="false"
+        jar="/Users/weisi/android-sdks/extras/android/m2repository/com/android/support/support-annotations/25.3.1/support-annotations-25.3.1.jar"
         jumboMode="false"
-        revision="23.0.0"
-        sha1="bb0ac3f3ee2d71854501cc28e52cc84a20209b41">
-        <dex dex="/Users/ianzhang/MakerSquare/BluetoothLeGatt/Application/build/intermediates/pre-dexed/debug/classes-0d4dd335b1434ad51eb8682962e5b66a6fcda41c.jar" />
+        optimize="true"
+        revision="25.0.2"
+        sha1="bf8841d29fa39e077730e7a91222c2ce269fa7c9">
+        <dex dex="/Users/weisi/Android/BluetoothLeGatt/app/build/intermediates/pre-dexed/debug/support-annotations-25.3.1_fbc75eca2b30673c505f7b62cbfa766773c8b7f1.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/weisi/.android/build-cache/762eb418863c75d8150349becaba2769c6839aaf/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="052f5f840f21174a3ecf6544130194e2652cbb73">
+        <dex dex="/Users/weisi/Android/BluetoothLeGatt/app/build/intermediates/pre-dexed/debug/classes_7b62cabd0e517e1f181740079d27e85d850f5b96.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/weisi/.android/build-cache/988a890eb9c9d131f6332a5192a991eb1f2da89d/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="47635644d0d5c103c1dd8360549eb9ba3225c7d3">
+        <dex dex="/Users/weisi/Android/BluetoothLeGatt/app/build/intermediates/pre-dexed/debug/classes_2393cc74bb2dfae61fa422361c2d807d3872c70d.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/weisi/.android/build-cache/d828182e7da8ddd26a8d10c396315ee6e27bfb1c/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="da27a32db6af8954ee8061537c7d476fcb1df46f">
+        <dex dex="/Users/weisi/Android/BluetoothLeGatt/app/build/intermediates/pre-dexed/debug/classes_ee837d068299e85fd13fc7ec6929748c2873bc4d.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/weisi/.android/build-cache/1cede65cf14f20256dac888654dff188d36cd62b/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="6ef31f1555bb4cc513ec8d52711365a8b89f3600">
+        <dex dex="/Users/weisi/Android/BluetoothLeGatt/app/build/intermediates/pre-dexed/debug/classes_eb456c3c7baa45699c084acbb3ec93c045a7e123.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/weisi/.android/build-cache/b2da35bd338d8514a001eeec2ba61fa5342adc3f/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="4a26a1154d053ab11aaf4c3967c42a4d66390991">
+        <dex dex="/Users/weisi/Android/BluetoothLeGatt/app/build/intermediates/pre-dexed/debug/classes_020c030dce511437201ae08c4870fbd58d27440d.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/weisi/.android/build-cache/bede0d81a7d0dc0b7a2b115adda18a0ee0b257dc/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="45f697922e6f072daa12f8a2995dc77ab03c11da">
+        <dex dex="/Users/weisi/Android/BluetoothLeGatt/app/build/intermediates/pre-dexed/debug/classes_c724ddb8de61dcf28a7ed5485f7821c13f255bee.jar" />
     </item>
 
 </items>
