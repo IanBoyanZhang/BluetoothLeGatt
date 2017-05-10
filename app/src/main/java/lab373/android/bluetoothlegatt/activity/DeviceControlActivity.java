@@ -49,7 +49,6 @@ import lab373.android.bluetoothlegatt.service.BluetoothLeService;
  * communicates with {@code BluetoothLeService}, which in turn interacts with the
  * Bluetooth LE API.
  */
-//public class DeviceControlActivity extends Activity {
 public class DeviceControlActivity extends AppCompatActivity {
     private final static String TAG = DeviceControlActivity.class.getSimpleName();
 
@@ -101,6 +100,7 @@ public class DeviceControlActivity extends AppCompatActivity {
         @Override
         public void onReceive(Context context, Intent intent) {
             final String action = intent.getAction();
+            Log.i(TAG, "mGattUpdateReceiver");
             if (BluetoothLeService.ACTION_GATT_CONNECTED.equals(action)) {
                 mConnected = true;
                 updateConnectionState(R.string.connected);
@@ -321,7 +321,7 @@ public class DeviceControlActivity extends AppCompatActivity {
     }
 
     public void
-    Write(View v){
+    onClickWrite(View v){
         if(mBluetoothLeService != null) {
             mBluetoothLeService.writeCustomCharacteristic(0xAA);
         }

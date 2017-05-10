@@ -4,11 +4,11 @@
     android:layout_height="match_parent">
 
     <Button
+        android:id="@+id/button2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Write Char"
-        android:id="@+id/button2"
-        android:onClick="onClickWrite" />
+        android:onClick="onClickRead"
+        android:text="Write Char" />
 
     <Button
         android:layout_width="match_parent"
