@@ -208,7 +208,6 @@ public class DeviceControlActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        Log.d(TAG, "GATT: " + " I AM HERE");
         getMenuInflater().inflate(R.menu.gatt_services, menu);
         if (mConnected) {
             menu.findItem(R.id.menu_connect).setVisible(false);
