@@ -68,7 +68,6 @@ public class DeviceScanActivity extends AppCompatActivity implements BluetoothAd
         deviceListView.setAdapter(mLeDeviceListAdapter);
 
         initBluetoothAdapter();
-
     }
 
     void initBluetoothAdapter (){
@@ -109,6 +108,7 @@ public class DeviceScanActivity extends AppCompatActivity implements BluetoothAd
             @Override
             public void run() {
                 swipeRefreshLayout.setRefreshing(true);
+                onRefresh();
             }
         });
 
@@ -226,9 +226,5 @@ public class DeviceScanActivity extends AppCompatActivity implements BluetoothAd
             mScanning = false;
         }
     }
-
-
-
-
 
 }

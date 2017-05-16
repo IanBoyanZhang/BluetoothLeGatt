@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:baselineAligned="false">
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onClickWrite"
+        android:text="Write Char" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Read Char"
+        android:id="@+id/button"
+        android:onClick="onClickRead" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/no_data"
+        android:id="@+id/data_value" />
+
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <!-- The main content -->
+        <!--<com.google.android.gms.maps.MapView-->
+            <!--android:id="@+id/map"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent" />-->
+        <!-- "Loaded" flash bar layout -->
+        <FrameLayout
+            android:id="@+id/FlashBarLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|bottom"
+            android:layout_marginBottom="72dp">
+            <!-- flash bar content -->
+        </FrameLayout>
+        <!-- Last loaded time layout -->
+        <!--<TextView-->
+            <!--android:id="@+id/UpdateTimeText"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_gravity="top|right"-->
+            <!--android:text="@string/no_data"-->
+            <!--android:layout_marginTop="4dp"-->
+            <!--android:layout_marginRight="4dp" />-->
+    </FrameLayout>
+</LinearLayout>
