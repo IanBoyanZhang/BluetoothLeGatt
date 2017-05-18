@@ -74,7 +74,9 @@ public class BluetoothLeService extends Service {
 //    public final static UUID UUID_HID_REPORT = UUID.fromString("00002a4d-0000-1000-8000-00805f9b34fb");
 //    Characteristic UUID
 //    public final static UUID UUID_CLIENT_CHAR_CONFIG = UUID.fromString("00002902-0000-1000-8000-00805f9b34fb");
-    public final static UUID UUID_CLIENT_CHAR_CONFIG = UUID.fromString("0000beef-1212-efde-1523-785fef13d123");
+    public final static UUID UUID_CLIENT_CHAR = UUID.fromString("0000beef-1212-efde-1523-785fef13d123");
+//    TODO: What is the right uuid for subscribing the notification?
+//    public final static UUID UUID_CLIENT_CHAR_CONFIG = UUID.fromString("00002902-1212-efde-1523-785fef13d123");
 
     // Implements callback methods for GATT events that the app cares about.  For example,
     // connection change and services discovered.
@@ -122,15 +124,6 @@ public class BluetoothLeService extends Service {
 //                    Log.d(TAG, "GATT_SINGLE: " + gattCharacteristic.getUuid());
 
 //                    TODO: refactor below using setCharacteristicNotification style function
-//                    BluetoothGattDescriptor descriptor = gattCharacteristic.getDescriptor(UUID_CLIENT_CHAR_CONFIG);
-////                    Log.d(TAG, "GATT_DES" + descriptor);
-////                    Preliminary Filtering
-//                    if (descriptor != null) {
-//                        descriptor.setValue(BluetoothGattDescriptor.ENABLE_NOTIFICATION_VALUE);
-//                        mBluetoothGatt.writeDescriptor(descriptor);
-//                    }
-
-
                     setCharacteristicNotification(gattCharacteristic, true);
                 }
             } else {
@@ -337,6 +330,8 @@ public class BluetoothLeService extends Service {
      */
     public void setCharacteristicNotification(BluetoothGattCharacteristic characteristic,
                                               boolean enabled) {
+        //                    http://stackoverflow.com/questions/27068673/subscribe-to-a-ble-gatt-notification-android
+
         if (mBluetoothAdapter == null || mBluetoothGatt == null) {
             Log.w(TAG, "BluetoothAdapter not initialized");
             return;
@@ -352,11 +347,12 @@ public class BluetoothLeService extends Service {
         }
 
         // This is specific to HID application
-        if (UUID_REPORT.equals(characteristic.getUuid())) {
-            BluetoothGattDescriptor descriptor = characteristic.getDescriptor(UUID_CLIENT_CHAR_CONFIG);
-            Log.i(TAG, "GATT_SERVICE" + descriptor);
-            descriptor.setValue(BluetoothGattDescriptor.ENABLE_NOTIFICATION_VALUE);
-            mBluetoothGatt.writeDescriptor(descriptor);
+        if (UUID_CLIENT_CHAR.equals(characteristic.getUuid())) {
+            for (BluetoothGattDescriptor descriptor: characteristic.getDescriptors()) {
+                Log.i(TAG, "GATT_CHAR" + descriptor);
+                descriptor.setValue(BluetoothGattDescriptor.ENABLE_NOTIFICATION_VALUE);
+                mBluetoothGatt.writeDescriptor(descriptor);
+            }
         }
 
     }
@@ -387,7 +383,7 @@ public class BluetoothLeService extends Service {
             return;
         }
         /*get the read characteristic from the service*/
-        BluetoothGattCharacteristic mReadCharacteristic = mCustomService.getCharacteristic(UUID_CLIENT_CHAR_CONFIG);
+        BluetoothGattCharacteristic mReadCharacteristic = mCustomService.getCharacteristic(UUID_CLIENT_CHAR);
         if(mBluetoothGatt.readCharacteristic(mReadCharacteristic) == false){
             Log.w(TAG, "Failed to read characteristic");
         }
@@ -405,7 +401,7 @@ public class BluetoothLeService extends Service {
             return;
         }
         /*get the read characteristic from the service*/
-        BluetoothGattCharacteristic mWriteCharacteristic = mCustomService.getCharacteristic(UUID_CLIENT_CHAR_CONFIG);
+        BluetoothGattCharacteristic mWriteCharacteristic = mCustomService.getCharacteristic(UUID_CLIENT_CHAR);
         mWriteCharacteristic.setValue(value,android.bluetooth.BluetoothGattCharacteristic.FORMAT_UINT8,0);
         if(mBluetoothGatt.writeCharacteristic(mWriteCharacteristic) == false){
             Log.w(TAG, "Failed to write characteristic");
