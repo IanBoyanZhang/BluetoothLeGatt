@@ -238,7 +238,7 @@ public class DeviceControlActivity extends AppCompatActivity {
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                //mConnectionState.setText(resourceId);
+//                mConnectionState.setText(resourceId);
             }
         });
     }
