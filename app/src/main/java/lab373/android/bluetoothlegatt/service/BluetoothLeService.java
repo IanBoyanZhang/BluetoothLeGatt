@@ -69,13 +69,12 @@ public class BluetoothLeService extends Service {
             UUID.fromString(SampleGattAttributes.HEART_RATE_MEASUREMENT);
 
 //    Service UUID
-    public final static UUID UUID_HID = UUID.fromString("00001812-0000-1000-8000-00805f9b34fb");
-
-//    public final static UUID UUID_HID = UUID.fromString("00001835-0000-1000-8000-00805f9b34fb");
+//    public final static UUID UUID_HID = UUID.fromString("00001812-0000-1000-8000-00805f9b34fb");
+    public final static UUID UUID_REPORT = UUID.fromString("0000f00d-1212-efde-1523-785fef13d123");
+//    public final static UUID UUID_HID_REPORT = UUID.fromString("00002a4d-0000-1000-8000-00805f9b34fb");
 //    Characteristic UUID
-    public final static UUID UUID_HID_REPORT = UUID.fromString("00002a4d-0000-1000-8000-00805f9b34fb");
-
-    public final static UUID UUID_CLIENT_CHAR_CONFIG = UUID.fromString("00002902-0000-1000-8000-00805f9b34fb");
+//    public final static UUID UUID_CLIENT_CHAR_CONFIG = UUID.fromString("00002902-0000-1000-8000-00805f9b34fb");
+    public final static UUID UUID_CLIENT_CHAR_CONFIG = UUID.fromString("0000beef-1212-efde-1523-785fef13d123");
 
     // Implements callback methods for GATT events that the app cares about.  For example,
     // connection change and services discovered.
@@ -116,7 +115,7 @@ public class BluetoothLeService extends Service {
 
 //                }
 
-                BluetoothGattService gattService = mBluetoothGatt.getService(UUID_HID);
+                BluetoothGattService gattService = mBluetoothGatt.getService(UUID_REPORT);
                 List<BluetoothGattCharacteristic> gattCharacteristics = gattService.getCharacteristics();
 //                Log.d(TAG, "GATT-CHAR: " + gattCharacteristics.toString());
                 for (BluetoothGattCharacteristic gattCharacteristic: gattCharacteristics) {
@@ -353,7 +352,7 @@ public class BluetoothLeService extends Service {
         }
 
         // This is specific to HID application
-        if (UUID_HID.equals(characteristic.getUuid())) {
+        if (UUID_REPORT.equals(characteristic.getUuid())) {
             BluetoothGattDescriptor descriptor = characteristic.getDescriptor(UUID_CLIENT_CHAR_CONFIG);
             Log.i(TAG, "GATT_SERVICE" + descriptor);
             descriptor.setValue(BluetoothGattDescriptor.ENABLE_NOTIFICATION_VALUE);
@@ -380,7 +379,9 @@ public class BluetoothLeService extends Service {
             return;
         }
         /*check if the service is available on the device*/
-        BluetoothGattService mCustomService = mBluetoothGatt.getService(UUID.fromString("00001812-0000-1000-8000-00805f9b34fb"));
+//        BluetoothGattService mCustomService = mBluetoothGatt.getService(UUID.fromString("00001812-0000-1000-8000-00805f9b34fb"));
+
+        BluetoothGattService mCustomService = mBluetoothGatt.getService(UUID_REPORT);
         Log.d(TAG, "mCustomService" +  mCustomService.toString());
 
         if(mCustomService == null){
@@ -388,7 +389,8 @@ public class BluetoothLeService extends Service {
             return;
         }
         /*get the read characteristic from the service*/
-        BluetoothGattCharacteristic mReadCharacteristic = mCustomService.getCharacteristic(UUID.fromString("00002a4d-0000-1000-8000-00805f9b34fb"));
+//        BluetoothGattCharacteristic mReadCharacteristic = mCustomService.getCharacteristic(UUID.fromString("00002a4d-0000-1000-8000-00805f9b34fb"));
+        BluetoothGattCharacteristic mReadCharacteristic = mCustomService.getCharacteristic(UUID_CLIENT_CHAR_CONFIG);
         if(mBluetoothGatt.readCharacteristic(mReadCharacteristic) == false){
             Log.w(TAG, "Failed to read characteristic");
         }
@@ -400,17 +402,18 @@ public class BluetoothLeService extends Service {
             return;
         }
         /*check if the service is available on the device*/
-        BluetoothGattService mCustomService = mBluetoothGatt.getService(UUID.fromString("00001110-0000-1000-8000-00805f9b34fb"));
+//        BluetoothGattService mCustomService = mBluetoothGatt.getService(UUID.fromString("00001110-0000-1000-8000-00805f9b34fb"));
+        BluetoothGattService mCustomService = mBluetoothGatt.getService(UUID_REPORT);
         if(mCustomService == null){
             Log.w(TAG, "Custom BLE Service not found");
             return;
         }
         /*get the read characteristic from the service*/
-        BluetoothGattCharacteristic mWriteCharacteristic = mCustomService.getCharacteristic(UUID.fromString("00000001-0000-1000-8000-00805f9b34fb"));
+//        BluetoothGattCharacteristic mWriteCharacteristic = mCustomService.getCharacteristic(UUID.fromString("00000001-0000-1000-8000-00805f9b34fb"));
+        BluetoothGattCharacteristic mWriteCharacteristic = mCustomService.getCharacteristic(UUID_CLIENT_CHAR_CONFIG);
         mWriteCharacteristic.setValue(value,android.bluetooth.BluetoothGattCharacteristic.FORMAT_UINT8,0);
         if(mBluetoothGatt.writeCharacteristic(mWriteCharacteristic) == false){
             Log.w(TAG, "Failed to write characteristic");
         }
     }
-
 }

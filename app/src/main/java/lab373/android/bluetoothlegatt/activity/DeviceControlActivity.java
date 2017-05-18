@@ -122,7 +122,7 @@ public class DeviceControlActivity extends AppCompatActivity {
     // demonstrates 'Read' and 'Notify' features.  See
     // http://d.android.com/reference/android/bluetooth/BluetoothGatt.html for the complete
     // list of supported characteristic features.
-    private final ExpandableListView.OnChildClickListener servicesListClickListner =
+    private final ExpandableListView.OnChildClickListener servicesListClickListener =
             new ExpandableListView.OnChildClickListener() {
                 @Override
                 public boolean onChildClick(ExpandableListView parent, View v, int groupPosition,
@@ -170,7 +170,7 @@ public class DeviceControlActivity extends AppCompatActivity {
 
 //        ((TextView) findViewById(R.id.device_address)).setText(mDeviceAddress);
 //        mGattServicesList = (ExpandableListView) findViewById(R.id.gatt_services_list);
-//        mGattServicesList.setOnChildClickListener(servicesListClickListner);
+//        mGattServicesList.setOnChildClickListener(servicesListClickListener);
 //        mConnectionState = (TextView) findViewById(R.id.connection_state);
 
 
