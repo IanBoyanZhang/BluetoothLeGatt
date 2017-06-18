@@ -32,10 +32,16 @@ import android.provider.Settings;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.Manifest;
 
@@ -67,6 +73,8 @@ public class DeviceScanActivity extends AppCompatActivity implements BluetoothAd
 
     // For opening floating window
     private Activity mActivity;
+    private EditText edt1;
+    private TextView tvValue;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -82,7 +90,8 @@ public class DeviceScanActivity extends AppCompatActivity implements BluetoothAd
         deviceListView.setAdapter(mLeDeviceListAdapter);
 
         // For opening floating window
-        mActivity = this;
+        // TODO: Debug this window keeps stopping
+        initOverlay();
 
         initBluetoothAdapter();
 
@@ -126,6 +135,45 @@ public class DeviceScanActivity extends AppCompatActivity implements BluetoothAd
                 return;
             }
         }
+    }
+
+    void initOverlay() {
+        mActivity = this;
+        edt1 = (EditText) findViewById(R.id.edt1);
+        tvValue = (TextView) findViewById(R.id.tvValue);
+        Button btnStartService = (Button) findViewById(R.id.btnStartService);
+        Button btnClose = (Button) findViewById(R.id.btnClose);
+
+        edt1.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                tvValue.setText(edt1.getText());
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+
+        btnClose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mActivity.finish();
+            }
+        });
+
+        btnStartService.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                checkDrawOverlayPermission();
+            }
+        });
     }
 
     void initBluetoothAdapter (){
@@ -232,6 +280,15 @@ public class DeviceScanActivity extends AppCompatActivity implements BluetoothAd
         if (requestCode == REQUEST_ENABLE_BT && resultCode == Activity.RESULT_CANCELED) {
             finish();
             return;
+        }
+        switch (requestCode) {
+            case Overlay_REQUEST_CODE: {
+                if (Build.VERSION.SDK_INT >= 23 && Settings.canDrawOverlays(mActivity)) {
+                    openFloatingWindow();
+                    return;
+                }
+                openFloatingWindow();
+            }
         }
         super.onActivityResult(requestCode, resultCode, data);
     }
