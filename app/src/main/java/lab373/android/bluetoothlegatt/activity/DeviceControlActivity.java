@@ -42,6 +42,7 @@ import lab373.android.bluetoothlegatt.R;
 import lab373.android.bluetoothlegatt.data.SampleGattAttributes;
 import lab373.android.bluetoothlegatt.service.BluetoothLeService;
 
+
 /**
  * For a given BLE device, this Activity provides the user interface to connect, display data,
  * and display GATT services and characteristics supported by the device.  The Activity
@@ -49,6 +50,7 @@ import lab373.android.bluetoothlegatt.service.BluetoothLeService;
  * Bluetooth LE API.
  */
 public class DeviceControlActivity extends AppCompatActivity {
+//    TODO: Refactor SampleGattAttributes usage
     private final static String TAG = DeviceControlActivity.class.getSimpleName();
 
     public static final String EXTRAS_DEVICE_NAME = "DEVICE_NAME";

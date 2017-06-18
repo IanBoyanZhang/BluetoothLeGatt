@@ -68,6 +68,8 @@ public class BluetoothLeService extends Service {
     public final static UUID UUID_HEART_RATE_MEASUREMENT =
             UUID.fromString(SampleGattAttributes.HEART_RATE_MEASUREMENT);
 
+//    TODO: Refactor below parts using SampleGattAttributes
+
 //    Service UUID
 //    public final static UUID UUID_HID = UUID.fromString("00001812-0000-1000-8000-00805f9b34fb");
     public final static UUID UUID_REPORT = UUID.fromString("0000f00d-1212-efde-1523-785fef13d123");
