@@ -24,9 +24,11 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.provider.Settings;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -42,6 +44,7 @@ import java.util.ArrayList;
 import lab373.android.bluetoothlegatt.R;
 import lab373.android.bluetoothlegatt.adapters.LeDeviceListAdapter;
 import lab373.android.bluetoothlegatt.callbacks.OnDeviceSelectedListener;
+import lab373.android.bluetoothlegatt.service.FloatingWindow;
 
 /**
  * Activity for scanning and displaying available Bluetooth LE devices.
@@ -54,15 +57,17 @@ public class DeviceScanActivity extends AppCompatActivity implements BluetoothAd
     private Handler mHandler;
 
     private static final String TAG = DeviceScanActivity.class.getSimpleName();
-
     private static final int PERMISSION_REQUEST_COARSE_LOCATION = 1;
-
     private static final int REQUEST_ENABLE_BT = 1;
     // Stops scanning after 10 seconds.
     private static final long SCAN_PERIOD = 10000;
     ArrayList<BluetoothDevice> mLeDevices;
     SwipeRefreshLayout swipeRefreshLayout;
     ListView deviceListView;
+
+    // For opening floating window
+    private Activity mActivity;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -75,6 +80,9 @@ public class DeviceScanActivity extends AppCompatActivity implements BluetoothAd
         // Initializes list view adapter.
         mLeDeviceListAdapter = new LeDeviceListAdapter(DeviceScanActivity.this, mLeDevices, this);
         deviceListView.setAdapter(mLeDeviceListAdapter);
+
+        // For opening floating window
+        mActivity = this;
 
         initBluetoothAdapter();
 
@@ -198,6 +206,23 @@ public class DeviceScanActivity extends AppCompatActivity implements BluetoothAd
                 break;
         }
         return true;
+    }
+
+    private void openFloatingWindow() {
+        Intent intent = new Intent(mActivity, FloatingWindow.class);
+        mActivity.stopService(intent);
+        mActivity.startService(intent);
+    }
+
+    // For opening floating overlay window
+    public final static int Overlay_REQUEST_CODE = 251;
+    public void checkDrawOverlayPermission() {
+        if (Build.VERSION.SDK_INT >= 23 && !Settings.canDrawOverlays(mActivity)) {
+            Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package: " + getPackageName()));
+            startActivityForResult(intent, Overlay_REQUEST_CODE);
+            return;
+        }
+        openFloatingWindow();
     }
 
 
