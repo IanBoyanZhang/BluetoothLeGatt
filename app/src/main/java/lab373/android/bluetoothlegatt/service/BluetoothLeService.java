@@ -156,6 +156,7 @@ public class BluetoothLeService extends Service {
         }
     };
 
+    // Why there are two same name functions?
     private void broadcastUpdate(final String action) {
         final Intent intent = new Intent(action);
         sendBroadcast(intent);
