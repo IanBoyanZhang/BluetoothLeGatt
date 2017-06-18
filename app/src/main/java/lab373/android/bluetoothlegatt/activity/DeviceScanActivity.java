@@ -53,7 +53,7 @@ public class DeviceScanActivity extends AppCompatActivity implements BluetoothAd
     private boolean mScanning;
     private Handler mHandler;
 
-    private static final String TAG = "DeviceScanActivity";
+    private static final String TAG = DeviceScanActivity.class.getSimpleName();
 
     private static final int PERMISSION_REQUEST_COARSE_LOCATION = 1;
 
