@@ -281,6 +281,7 @@ public class DeviceScanActivity extends AppCompatActivity implements BluetoothAd
             finish();
             return;
         }
+        Log.d(TAG, "CHECK DRAW OVERLAY PERMISSION");
         switch (requestCode) {
             case Overlay_REQUEST_CODE: {
                 if (Build.VERSION.SDK_INT >= 23 && Settings.canDrawOverlays(mActivity)) {
