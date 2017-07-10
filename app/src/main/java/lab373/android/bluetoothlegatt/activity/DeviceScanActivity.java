@@ -269,12 +269,10 @@ public class DeviceScanActivity extends AppCompatActivity implements BluetoothAd
             if (!Settings.canDrawOverlays(mActivity)) {
                 Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:" + getPackageName()));
                 startActivityForResult(intent, Overlay_REQUEST_CODE);
-            } else {
-                openFloatingWindow();
+                return;
             }
-        } else {
-            openFloatingWindow();
         }
+        openFloatingWindow();
     }
 
 
