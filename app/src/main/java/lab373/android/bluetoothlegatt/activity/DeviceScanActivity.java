@@ -265,12 +265,16 @@ public class DeviceScanActivity extends AppCompatActivity implements BluetoothAd
     // For opening floating overlay window
     public final static int Overlay_REQUEST_CODE = 251;
     public void checkDrawOverlayPermission() {
-        if (Build.VERSION.SDK_INT >= 23 && !Settings.canDrawOverlays(mActivity)) {
-            Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package: " + getPackageName()));
-            startActivityForResult(intent, Overlay_REQUEST_CODE);
-            return;
+        if (Build.VERSION.SDK_INT >= 23) {
+            if (!Settings.canDrawOverlays(mActivity)) {
+                Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:" + getPackageName()));
+                startActivityForResult(intent, Overlay_REQUEST_CODE);
+            } else {
+                openFloatingWindow();
+            }
+        } else {
+            openFloatingWindow();
         }
-        openFloatingWindow();
     }
 
 
