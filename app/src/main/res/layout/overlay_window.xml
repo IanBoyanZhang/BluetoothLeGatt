@@ -11,25 +11,11 @@
     android:background="#548F32"
     tools:context="lab373.android.bluetoothlegatt.activity.DeviceScanActivity">
 
-    <EditText
-        android:id="@+id/edt1"
-        android:hint="Type here"
-        android:layout_toLeftOf="@+id/btnClose"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="close"
         android:layout_alignParentRight="true"
         android:id="@+id/btnClose"/>
-
-    <TextView
-        android:id="@+id/tvValue"
-        android:layout_below="@+id/edt1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text=""/>
 
 </RelativeLayout>
