@@ -32,8 +32,6 @@ import android.provider.Settings;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -95,6 +93,10 @@ public class DeviceScanActivity extends AppCompatActivity implements BluetoothAd
 
         initBluetoothAdapter();
 
+        requestAccessLocation();
+    }
+
+    void requestAccessLocation() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             // Android M Permission check
             if (this.checkSelfPermission(Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
@@ -139,41 +141,22 @@ public class DeviceScanActivity extends AppCompatActivity implements BluetoothAd
 
     void initOverlay() {
         mActivity = this;
-        edt1 = (EditText) findViewById(R.id.edt1);
-        tvValue = (TextView) findViewById(R.id.tvValue);
-        Button btnStartService = (Button) findViewById(R.id.btnStartService);
-        Button btnClose = (Button) findViewById(R.id.btnClose);
-
-        edt1.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                tvValue.setText(edt1.getText());
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-
-            }
-        });
-
-        btnClose.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                mActivity.finish();
-            }
-        });
-
-        btnStartService.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                checkDrawOverlayPermission();
-            }
-        });
+//        Button btnStartService = (Button) findViewById(R.id.menu_start_overlay);
+//        Button btnClose = (Button) findViewById(R.id.menu_stop_overlay);
+//
+//        btnClose.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                mActivity.finish();
+//            }
+//        });
+//
+//        btnStartService.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                checkDrawOverlayPermission();
+//            }
+//        });
     }
 
     void initBluetoothAdapter (){
@@ -257,8 +240,10 @@ public class DeviceScanActivity extends AppCompatActivity implements BluetoothAd
                 scanLeDevice(false);
                 break;
             case R.id.menu_start_overlay:
+                checkDrawOverlayPermission();
                 break;
             case R.id.menu_stop_overlay:
+                mActivity.finish();
                 break;
         }
         return true;
@@ -333,7 +318,6 @@ public class DeviceScanActivity extends AppCompatActivity implements BluetoothAd
                     invalidateOptionsMenu();
                 }
             }, SCAN_PERIOD);
-
             startScan();
         } else {
             stopScan();
