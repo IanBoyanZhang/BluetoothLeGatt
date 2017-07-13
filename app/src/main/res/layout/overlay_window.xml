@@ -8,7 +8,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:background="#548F32"
+    android:background="#CC3F51B5"
     tools:context="lab373.android.bluetoothlegatt.activity.DeviceScanActivity">
 
     <Button
