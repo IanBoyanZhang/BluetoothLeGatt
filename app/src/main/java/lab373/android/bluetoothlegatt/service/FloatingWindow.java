@@ -42,7 +42,7 @@ public class FloatingWindow extends Service {
     public int onStartCommand(Intent intent, int flags, int startId) {
         mWindowManager = (WindowManager) getSystemService(WINDOW_SERVICE);
         allAboutLayout(intent);
-         moveView();
+        moveView();
         return super.onStartCommand(intent, flags, startId);
     }
 
@@ -58,8 +58,10 @@ public class FloatingWindow extends Service {
 
     private void moveView() {
         DisplayMetrics metrics = mContext.getResources().getDisplayMetrics();
-        int width = (int) (metrics.widthPixels * 0.7f);
-        int height = (int) (metrics.heightPixels * 0.45f);
+        // int width = (int) (metrics.widthPixels * 0.7f);
+        int width = (int) (metrics.widthPixels * 0.3f);
+        // int height = (int) (metrics.heightPixels * 0.45f);
+        int height = (int) (metrics.heightPixels * 0.25f);
 
         mWindowsParams = new WindowManager.LayoutParams(
                 width, //WindowManager.LayoutParams.WRAP_CONTENT,
@@ -74,7 +76,8 @@ public class FloatingWindow extends Service {
 
         mWindowsParams.gravity = Gravity.TOP | Gravity.LEFT;
         //params.x = 0;
-        mWindowsParams.y = 100;
+        mWindowsParams.x = (int)(metrics.widthPixels * .7f);
+        mWindowsParams.y = 500;
         mWindowManager.addView(mView, mWindowsParams);
 
         mView.setOnTouchListener(new View.OnTouchListener() {
