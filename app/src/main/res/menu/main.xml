@@ -26,4 +26,12 @@
           android:title="@string/menu_stop"
           android:orderInCategory="101"
           android:showAsAction="ifRoom|withText"/>
+    <item android:id="@+id/menu_start_overlay"
+          android:title="Start Overlay"
+          android:orderInCategory="102"
+          android:showAsAction="ifRoom|withText"/>
+    <item android:id="@+id/menu_stop_overlay"
+          android:title="Stop Overlay"
+          android:orderInCategory="103"
+          android:showAsAction="ifRoom|withText"/>
 </menu>

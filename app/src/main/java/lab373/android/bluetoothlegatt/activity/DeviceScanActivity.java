@@ -60,6 +60,7 @@ public class DeviceScanActivity extends AppCompatActivity implements BluetoothAd
     private LeDeviceListAdapter mLeDeviceListAdapter;
     private BluetoothAdapter mBluetoothAdapter;
     private boolean mScanning;
+    private boolean mShowingOverlay;
     private Handler mHandler;
 
     private static final String TAG = DeviceScanActivity.class.getSimpleName();
@@ -90,7 +91,6 @@ public class DeviceScanActivity extends AppCompatActivity implements BluetoothAd
         deviceListView.setAdapter(mLeDeviceListAdapter);
 
         // For opening floating window
-        // TODO: Debug this window keeps stopping
         initOverlay();
 
         initBluetoothAdapter();
@@ -239,6 +239,10 @@ public class DeviceScanActivity extends AppCompatActivity implements BluetoothAd
             menu.findItem(R.id.menu_refresh).setActionView(
                     R.layout.actionbar_indeterminate_progress);
         }
+
+        menu.findItem(R.id.menu_start_overlay).setVisible(true);
+        menu.findItem(R.id.menu_stop_overlay).setVisible(true);
+
         return true;
     }
 
@@ -251,6 +255,10 @@ public class DeviceScanActivity extends AppCompatActivity implements BluetoothAd
                 break;
             case R.id.menu_stop:
                 scanLeDevice(false);
+                break;
+            case R.id.menu_start_overlay:
+                break;
+            case R.id.menu_stop_overlay:
                 break;
         }
         return true;
@@ -360,4 +368,7 @@ public class DeviceScanActivity extends AppCompatActivity implements BluetoothAd
         }
     }
 
+    /**
+     * Overlay services
+     */
 }
