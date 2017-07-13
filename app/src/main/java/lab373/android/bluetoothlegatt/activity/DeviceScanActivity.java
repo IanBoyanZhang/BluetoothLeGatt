@@ -89,8 +89,7 @@ public class DeviceScanActivity extends AppCompatActivity implements BluetoothAd
         deviceListView.setAdapter(mLeDeviceListAdapter);
 
         // For opening floating window
-        initOverlay();
-
+        mActivity = this;
         initBluetoothAdapter();
 
         requestAccessLocation();
@@ -137,26 +136,6 @@ public class DeviceScanActivity extends AppCompatActivity implements BluetoothAd
                 return;
             }
         }
-    }
-
-    void initOverlay() {
-        mActivity = this;
-//        Button btnStartService = (Button) findViewById(R.id.menu_start_overlay);
-//        Button btnClose = (Button) findViewById(R.id.menu_stop_overlay);
-//
-//        btnClose.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                mActivity.finish();
-//            }
-//        });
-//
-//        btnStartService.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                checkDrawOverlayPermission();
-//            }
-//        });
     }
 
     void initBluetoothAdapter (){
