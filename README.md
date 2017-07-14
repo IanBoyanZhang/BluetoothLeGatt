@@ -5,7 +5,7 @@ Android BluetoothLeGatt
 Introduction
 ------------
 
-This sample shows a list of available Bluetooth LE devices and provides
+This project shows a list of available Bluetooth LE devices and provides
 an interface to connect, display data and display GATT services and
 characteristics supported by the devices.
 
@@ -30,7 +30,7 @@ Screenshots
 Getting Started
 ---------------
 
-This sample uses the Gradle build system. To build this project, use the
+This project uses the Gradle build system. To build this project, use the
 "gradlew build" command or use "Import Project" in Android Studio.
 
 Support
