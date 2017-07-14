@@ -15,7 +15,7 @@ import lab373.android.bluetoothlegatt.R;
 import lab373.android.bluetoothlegatt.callbacks.OnDeviceSelectedListener;
 
 /**
- * Created by weisi on 4/10/17.
+ * Created by ianzhang on 4/10/17.
  */
 
 public class LeDeviceListAdapter extends BaseAdapter {

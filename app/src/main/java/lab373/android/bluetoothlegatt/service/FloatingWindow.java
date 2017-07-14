@@ -151,31 +151,7 @@ public class FloatingWindow extends Service {
         LayoutInflater layoutInflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         mView = layoutInflater.inflate(R.layout.overlay_window, null);
 
-//        final EditText edt1 = (EditText) mView.findViewById(R.id.edt1);
-//        final TextView tvValue = (TextView) mView.findViewById(R.id.tvValue);
         Button btnClose = (Button) mView.findViewById(R.id.btnClose);
-
-/*        edt1.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View view, boolean b) {}
-        });
-
-        edt1.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                tvValue.setText(edt1.getText());
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-
-            }
-        });*/
 
         btnClose.setOnClickListener(new View.OnClickListener() {
             @Override
