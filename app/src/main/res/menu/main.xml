@@ -31,7 +31,7 @@
           android:orderInCategory="102"
           android:showAsAction="ifRoom|withText"/>
     <item android:id="@+id/menu_stop_overlay"
-          android:title="Stop Overlay"
+          android:title="Stop Service"
           android:orderInCategory="103"
           android:showAsAction="ifRoom|withText"/>
 </menu>

@@ -59,9 +59,9 @@ public class FloatingWindow extends Service {
     private void moveView() {
         DisplayMetrics metrics = mContext.getResources().getDisplayMetrics();
         // int width = (int) (metrics.widthPixels * 0.7f);
-        int width = (int) (metrics.widthPixels * 0.3f);
+        int width = (int) (metrics.widthPixels * 0.25f);
         // int height = (int) (metrics.heightPixels * 0.45f);
-        int height = (int) (metrics.heightPixels * 0.25f);
+        int height = (int) (metrics.heightPixels * 0.15f);
 
         mWindowsParams = new WindowManager.LayoutParams(
                 width, //WindowManager.LayoutParams.WRAP_CONTENT,
