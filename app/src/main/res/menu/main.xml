@@ -27,11 +27,15 @@
           android:orderInCategory="101"
           android:showAsAction="ifRoom|withText"/>
     <item android:id="@+id/menu_start_overlay"
-          android:title="Start Overlay"
+          android:title="@string/menu_start_overlay"
           android:orderInCategory="102"
           android:showAsAction="ifRoom|withText"/>
     <item android:id="@+id/menu_stop_service"
-          android:title="Stop Service"
+          android:title="@string/menu_stop_service"
           android:orderInCategory="103"
+          android:showAsAction="ifRoom|withText"/>
+    <item android:id="@+id/menu_mode_selection"
+          android:title="@string/menu_start_mode_options"
+          android:orderInCategory="104"
           android:showAsAction="ifRoom|withText"/>
 </menu>

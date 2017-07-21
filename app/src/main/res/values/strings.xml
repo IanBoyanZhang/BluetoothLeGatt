@@ -19,6 +19,9 @@
     <string name="menu_disconnect">Disconnect</string>
     <string name="menu_scan">Scan</string>
     <string name="menu_stop">Stop</string>
+    <string name="menu_start_overlay">Start Overlay</string>
+    <string name="menu_stop_service">Stop All Services</string>
+    <string name="menu_start_mode_options">Start Mode Options</string>
 
     <!-- Readout items -->
     <string name="mouse_action">Mouse Action</string>
