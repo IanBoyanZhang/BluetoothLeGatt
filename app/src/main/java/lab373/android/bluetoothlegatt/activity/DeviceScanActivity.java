@@ -201,7 +201,7 @@ public class DeviceScanActivity extends AppCompatActivity implements BluetoothAd
         }
 
         menu.findItem(R.id.menu_start_overlay).setVisible(true);
-        menu.findItem(R.id.menu_stop_overlay).setVisible(true);
+        menu.findItem(R.id.menu_stop_service).setVisible(true);
 
         return true;
     }
@@ -219,7 +219,7 @@ public class DeviceScanActivity extends AppCompatActivity implements BluetoothAd
             case R.id.menu_start_overlay:
                 checkDrawOverlayPermission();
                 break;
-            case R.id.menu_stop_overlay:
+            case R.id.menu_stop_service:
                 mActivity.finish();
                 break;
         }

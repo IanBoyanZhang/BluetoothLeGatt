@@ -116,6 +116,17 @@ public class FloatingWindow extends Service {
                 return false;
             }
         });
+
+        /**
+         * TODO: Going back to main view
+         * Fire an intent to your Activity to bring it foreground
+         */
+        mView.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                return false;
+            }
+        });
     }
 
     private boolean isViewInBounds(View view, int x, int y) {
