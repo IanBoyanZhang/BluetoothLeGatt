@@ -70,8 +70,6 @@ public class DeviceScanActivity extends AppCompatActivity implements BluetoothAd
 
     // For opening floating window
     private Activity mActivity;
-    private EditText edt1;
-    private TextView tvValue;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -222,6 +220,8 @@ public class DeviceScanActivity extends AppCompatActivity implements BluetoothAd
             case R.id.menu_stop_service:
                 mActivity.finish();
                 break;
+            case R.id.menu_mode_selection:
+                break;
         }
         return true;
     }
@@ -230,6 +230,10 @@ public class DeviceScanActivity extends AppCompatActivity implements BluetoothAd
         Intent intent = new Intent(mActivity, FloatingWindow.class);
         mActivity.stopService(intent);
         mActivity.startService(intent);
+    }
+
+    private void openModeWindow() {
+//        Intent intent = new Intent(mActivity, );
     }
 
     // For opening floating overlay window

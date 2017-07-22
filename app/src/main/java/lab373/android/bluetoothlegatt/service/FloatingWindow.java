@@ -6,8 +6,6 @@ import android.content.Intent;
 import android.graphics.PixelFormat;
 import android.graphics.Rect;
 import android.os.IBinder;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.util.DisplayMetrics;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -15,8 +13,6 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
 
 import lab373.android.bluetoothlegatt.R;
 
