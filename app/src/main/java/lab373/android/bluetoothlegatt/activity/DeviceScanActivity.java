@@ -264,8 +264,6 @@ public class DeviceScanActivity extends AppCompatActivity implements BluetoothAd
                     openFloatingWindow();
                     return;
                 }
-//                openFloatingWindow();
-//                openModeWindow();
             }
         }
         super.onActivityResult(requestCode, resultCode, data);
