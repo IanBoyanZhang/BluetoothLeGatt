@@ -45,6 +45,7 @@ import lab373.android.bluetoothlegatt.R;
 import lab373.android.bluetoothlegatt.adapters.LeDeviceListAdapter;
 import lab373.android.bluetoothlegatt.callbacks.OnDeviceSelectedListener;
 import lab373.android.bluetoothlegatt.service.FloatingWindow;
+import lab373.android.bluetoothlegatt.service.ModeOptions;
 
 /**
  * Activity for scanning and displaying available Bluetooth LE devices.
@@ -228,6 +229,7 @@ public class DeviceScanActivity extends AppCompatActivity implements BluetoothAd
                 mActivity.finish();
                 break;
             case R.id.menu_mode_selection:
+                openModeWindow();
                 break;
         }
         return true;
@@ -235,6 +237,12 @@ public class DeviceScanActivity extends AppCompatActivity implements BluetoothAd
 
     private void openFloatingWindow() {
         Intent intent = new Intent(mActivity, FloatingWindow.class);
+        mActivity.stopService(intent);
+        mActivity.startService(intent);
+    }
+
+    private void openModeWindow() {
+        Intent intent = new Intent(mActivity, ModeOptions.class);
         mActivity.stopService(intent);
         mActivity.startService(intent);
     }
@@ -256,7 +264,8 @@ public class DeviceScanActivity extends AppCompatActivity implements BluetoothAd
                     openFloatingWindow();
                     return;
                 }
-                openFloatingWindow();
+//                openFloatingWindow();
+//                openModeWindow();
             }
         }
         super.onActivityResult(requestCode, resultCode, data);

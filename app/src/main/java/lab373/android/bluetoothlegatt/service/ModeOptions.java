@@ -45,8 +45,8 @@ public class ModeOptions extends Service {
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         mWindowManager = (WindowManager) getSystemService(WINDOW_SERVICE);
-        // allAboutLayout(intent);
-        // moveView();
+        allAboutLayout(intent);
+        moveView();
         return super.onStartCommand(intent, flags, startId);
     }
 
@@ -121,12 +121,10 @@ public class ModeOptions extends Service {
         });
     }
 
-    private void issueLayout(final Intent intent) {
+    private void allAboutLayout(final Intent intent) {
         LayoutInflater layoutInflater =
                 (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
-        mView = layoutInflater.inflate(R.layout.overlay_window, null);
-
-
+        mView = layoutInflater.inflate(R.layout.overlay_mode_options, null);
     }
 }
