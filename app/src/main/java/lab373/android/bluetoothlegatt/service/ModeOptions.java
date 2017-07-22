@@ -8,6 +8,7 @@ import android.os.Binder;
 import android.os.Handler;
 import android.os.IBinder;
 import android.support.annotation.IdRes;
+import android.support.v4.content.LocalBroadcastManager;
 import android.util.DisplayMetrics;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -26,6 +27,7 @@ public class ModeOptions extends Service {
 
     private RadioGroup radioGroup;
 
+    // Time delay
     final Handler handler = new Handler();
     final Runnable r = new Runnable() {
         @Override
@@ -33,6 +35,9 @@ public class ModeOptions extends Service {
             stopSelf();
         }
     };
+
+    // Messaging between service and activity
+    private LocalBroadcastManager localBroadcastManager;
 
     public ModeOptions() {
     }

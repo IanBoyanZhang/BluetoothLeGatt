@@ -326,7 +326,9 @@ public class BluetoothLeService extends Service {
             mBluetoothGatt.writeDescriptor(descriptor);
         }
 
+        // TODO: Refactor functionality to be generic
         // This is specific to HID application
+        // Currently automatically enable notification
         if (UUID_CLIENT_CHAR.equals(characteristic.getUuid())) {
             for (BluetoothGattDescriptor descriptor: characteristic.getDescriptors()) {
                 Log.i(TAG, "GATT_CHAR" + descriptor);
