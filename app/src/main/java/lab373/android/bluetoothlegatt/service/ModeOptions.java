@@ -5,21 +5,34 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.PixelFormat;
 import android.os.Binder;
+import android.os.Handler;
 import android.os.IBinder;
+import android.support.annotation.IdRes;
 import android.util.DisplayMetrics;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 
 import lab373.android.bluetoothlegatt.R;
-import lab373.android.bluetoothlegatt.activity.DeviceScanActivity;
 
 public class ModeOptions extends Service {
     private Context mContext;
     private WindowManager mWindowManager;
     private View mView;
+
+    private RadioGroup radioGroup;
+
+    final Handler handler = new Handler();
+    final Runnable r = new Runnable() {
+        @Override
+        public void run() {
+            stopSelf();
+        }
+    };
 
     public ModeOptions() {
     }
@@ -43,6 +56,7 @@ public class ModeOptions extends Service {
         mContext = this;
     }
 
+
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         mWindowManager = (WindowManager) getSystemService(WINDOW_SERVICE);
@@ -64,7 +78,7 @@ public class ModeOptions extends Service {
     private void moveView() {
         DisplayMetrics metrics = mContext.getResources().getDisplayMetrics();
         int width = (int) (metrics.widthPixels * 0.60f);
-        int height = (int) (metrics.heightPixels * 0.75f);
+        int height = (int) (metrics.heightPixels * 0.55f);
 
         mWindowsParams = new WindowManager.LayoutParams(
                 width,
@@ -127,5 +141,26 @@ public class ModeOptions extends Service {
                 (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
         mView = layoutInflater.inflate(R.layout.overlay_mode_options, null);
+        radioGroup = (RadioGroup) mView.findViewById(R.id.radioGroupSetting);
+
+        // TODO: pass current selection on device for state initialization
+        radioGroup.clearCheck();
+
+        radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
+                RadioButton rb = (RadioButton) group.findViewById(checkedId);
+
+                // TODO: pass rb to bluetooth connection
+
+                // TODO: exception handling nothing is selected?
+                if (null != rb && checkedId > -1) {
+                }
+
+                // TODO: Add smoothly animated transition?
+                handler.postDelayed(r, 500);
+            }
+        });
+
     }
 }
