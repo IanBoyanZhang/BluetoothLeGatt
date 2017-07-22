@@ -3,12 +3,17 @@ package lab373.android.bluetoothlegatt.service;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.PixelFormat;
 import android.os.Binder;
 import android.os.IBinder;
+import android.util.DisplayMetrics;
+import android.view.Gravity;
+import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
 
-//import lab373.android.bluetoothlegatt.R;
+import lab373.android.bluetoothlegatt.R;
 
 public class ModeOptions extends Service {
     private Context mContext;
@@ -40,5 +45,88 @@ public class ModeOptions extends Service {
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         mWindowManager = (WindowManager) getSystemService(WINDOW_SERVICE);
+        // allAboutLayout(intent);
+        // moveView();
+        return super.onStartCommand(intent, flags, startId);
+    }
+
+    @Override
+    public void onDestroy() {
+        if (mView != null) {
+            mWindowManager.removeView(mView);
+        }
+        super.onDestroy();
+    }
+
+    WindowManager.LayoutParams mWindowsParams;
+
+    private void moveView() {
+        DisplayMetrics metrics = mContext.getResources().getDisplayMetrics();
+        int width = (int) (metrics.widthPixels * 0.60f);
+        int height = (int) (metrics.heightPixels * 0.75f);
+
+        mWindowsParams = new WindowManager.LayoutParams(
+                width,
+                height,
+                // TYPE_PHONE constant was deprecated in API level O. for non-system apps. Use TYPE_APPLICATION_OVERLAY instead.
+                WindowManager.LayoutParams.TYPE_PHONE,
+                WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL | WindowManager.LayoutParams.FLAG_WATCH_OUTSIDE_TOUCH,
+                PixelFormat.TRANSLUCENT);
+        mWindowsParams.gravity = Gravity.TOP | Gravity.LEFT;
+        mWindowsParams.x = (int)(metrics.widthPixels * .2f);
+        mWindowsParams.y = 500;
+        mWindowManager.addView(mView, mWindowsParams);
+
+        mView.setOnTouchListener(new View.OnTouchListener() {
+            private int initialX;
+            private int initialY;
+            private float initialTouchX;
+            private float initialTouchY;
+
+            long startTime = System.currentTimeMillis();
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if (System.currentTimeMillis() - startTime <= 300) {
+                    return false;
+                }
+
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN:
+                        initialX = mWindowsParams.x;
+                        initialY = mWindowsParams.y;
+                        initialTouchX = event.getRawX();
+                        initialTouchY = event.getRawY();
+                        break;
+                    case MotionEvent.ACTION_UP:
+                        break;
+                    case MotionEvent.ACTION_MOVE:
+                        mWindowsParams.x = initialX + (int) (event.getRawY() - initialTouchX);
+                        mWindowsParams.y = initialY + (int) (event.getRawY() - initialTouchY);
+                        mWindowManager.updateViewLayout(mView, mWindowsParams);
+                        break;
+                }
+                return false;
+            }
+        });
+
+        /**
+         * TODO: Going back to main view
+         * Fire an intent to your Activity to bring it to foreground
+         */
+        mView.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                return false;
+            }
+        });
+    }
+
+    private void issueLayout(final Intent intent) {
+        LayoutInflater layoutInflater =
+                (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+
+        mView = layoutInflater.inflate(R.layout.overlay_window, null);
+
+
     }
 }

@@ -4,7 +4,6 @@ import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.PixelFormat;
-import android.graphics.Rect;
 import android.os.IBinder;
 import android.util.DisplayMetrics;
 import android.view.Gravity;
@@ -63,6 +62,7 @@ public class FloatingWindow extends Service {
                 width, //WindowManager.LayoutParams.WRAP_CONTENT,
                 height, //WindowManager.LayoutParams.WRAP_CONTENT,
                 //WindowManager.LayoutParams.TYPE_SYSTEM_ALERT,
+                // This constant was deprecated in API level O. for non-system apps. Use TYPE_APPLICATION_OVERLAY instead.
                 WindowManager.LayoutParams.TYPE_PHONE,
                 //WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL,
                 WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL | WindowManager.LayoutParams.FLAG_WATCH_OUTSIDE_TOUCH,
@@ -88,11 +88,6 @@ public class FloatingWindow extends Service {
                 if (System.currentTimeMillis() - startTime <= 300) {
                     return false;
                 }
-                if (isViewInBounds(mView, (int) (event.getRawX()), (int)(event.getRawY()))) {
-                    editTextDontReceiveFocus();
-                } else {
-                    editTextDontReceiveFocus();
-                }
 
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_DOWN:
@@ -115,7 +110,7 @@ public class FloatingWindow extends Service {
 
         /**
          * TODO: Going back to main view
-         * Fire an intent to your Activity to bring it foreground
+         * Fire an intent to your Activity to bring it to foreground
          */
         mView.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
@@ -125,7 +120,7 @@ public class FloatingWindow extends Service {
         });
     }
 
-    private boolean isViewInBounds(View view, int x, int y) {
+    /*private boolean isViewInBounds(View view, int x, int y) {
         Rect outRect = new Rect();
         int[] location = new int[2];
         view.getDrawingRect(outRect);
@@ -152,7 +147,7 @@ public class FloatingWindow extends Service {
         }
     }
 
-    private boolean wasInFocus = true;
+    private boolean wasInFocus = true;*/
 
     private void allAboutLayout(final Intent intent) {
         LayoutInflater layoutInflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
