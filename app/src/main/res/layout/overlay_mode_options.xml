@@ -10,11 +10,48 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".activity.DeviceScanActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
+
+    <RadioGroup
+        android:layout_margin="@dimen/activity_horizontal_margin"
+        android:id="@+id/radioGroupSetting"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="New Text"
-        android:onClick="onClick"
-        android:clickable="true"/>
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/radioHeader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Modes:" />
+
+        <RadioButton
+            android:id="@+id/radioNormal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/radio_normal"
+            android:textSize="18sp"/>
+
+        <RadioButton
+            android:id="@+id/radioMedia"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/radio_media"
+            android:textSize="18sp"/>
+
+        <RadioButton
+            android:id="@+id/radioThreeD"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/radio_three_d"
+            android:textSize="18sp"/>
+
+        <RadioButton
+            android:id="@+id/radioGame"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/radio_game"
+            android:textSize="18sp"/>
+    </RadioGroup>
+
 
 </RelativeLayout>

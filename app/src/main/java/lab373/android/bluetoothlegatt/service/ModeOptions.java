@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.WindowManager;
 
 import lab373.android.bluetoothlegatt.R;
+import lab373.android.bluetoothlegatt.activity.DeviceScanActivity;
 
 public class ModeOptions extends Service {
     private Context mContext;

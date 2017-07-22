@@ -27,4 +27,10 @@
     <string name="mouse_action">Mouse Action</string>
     <string name="zoom_in">Zoom In</string>
     <string name="zoom_out">Zoom Out</string>
+
+    <!--Radio buttons-->
+    <string name="radio_normal">Normal</string>
+    <string name="radio_media">Media</string>
+    <string name="radio_three_d">3d</string>
+    <string name="radio_game">Game</string>
 </resources>
