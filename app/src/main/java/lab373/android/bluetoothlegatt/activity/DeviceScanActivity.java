@@ -35,9 +35,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
 import android.Manifest;
 
@@ -87,8 +85,8 @@ public class DeviceScanActivity extends AppCompatActivity implements BluetoothAd
         // For opening floating window
         mActivity = this;
         initBluetoothAdapter();
-
         requestAccessLocation();
+        requestOverlayPermission();
     }
 
     void requestAccessLocation() {
@@ -106,6 +104,15 @@ public class DeviceScanActivity extends AppCompatActivity implements BluetoothAd
                     }
                 });
                 builder.show();
+            }
+        }
+    }
+
+    void requestOverlayPermission() {
+        if (Build.VERSION.SDK_INT >= 23) {
+            if (!Settings.canDrawOverlays(mActivity)) {
+                Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION);
+                startActivityForResult(intent, Overlay_REQUEST_CODE);
             }
         }
     }
@@ -215,7 +222,7 @@ public class DeviceScanActivity extends AppCompatActivity implements BluetoothAd
                 scanLeDevice(false);
                 break;
             case R.id.menu_start_overlay:
-                checkDrawOverlayPermission();
+                openFloatingWindow();
                 break;
             case R.id.menu_stop_service:
                 mActivity.finish();
@@ -232,25 +239,8 @@ public class DeviceScanActivity extends AppCompatActivity implements BluetoothAd
         mActivity.startService(intent);
     }
 
-    private void openModeWindow() {
-//        Intent intent = new Intent(mActivity, );
-    }
-
     // For opening floating overlay window
     public final static int Overlay_REQUEST_CODE = 251;
-    public void checkDrawOverlayPermission() {
-        if (Build.VERSION.SDK_INT >= 23) {
-            if (!Settings.canDrawOverlays(mActivity)) {
-                Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:" + getPackageName()));
-                startActivityForResult(intent, Overlay_REQUEST_CODE);
-            } else {
-                openFloatingWindow();
-            }
-        } else {
-            openFloatingWindow();
-        }
-    }
-
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
