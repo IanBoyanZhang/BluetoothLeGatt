@@ -38,6 +38,8 @@ public class ModeOptions extends Service {
 
     // Messaging between service and activity
     private LocalBroadcastManager localBroadcastManager;
+    private final String SERVICE_RESULT = "com.service.result";
+    private final String SERVICE_MESSAGE = "com.service.message";
 
     public ModeOptions() {
     }
@@ -59,6 +61,8 @@ public class ModeOptions extends Service {
     public void onCreate() {
         super.onCreate();
         mContext = this;
+
+        localBroadcastManager = LocalBroadcastManager.getInstance(this);
     }
 
 
@@ -157,15 +161,47 @@ public class ModeOptions extends Service {
                 RadioButton rb = (RadioButton) group.findViewById(checkedId);
 
                 // TODO: pass rb to bluetooth connection
-
                 // TODO: exception handling nothing is selected?
                 if (null != rb && checkedId > -1) {
                 }
 
+                // TODO: parcel payload?
+                int id = 0;
+                switch (checkedId) {
+                    case R.id.radioNormal:
+                        id = 1;
+                        break;
+                    case R.id.radioMedia:
+                        id = 2;
+                        break;
+                    case R.id.radioGame:
+                        id = 3;
+                        break;
+                    case R.id.radioThreeD:
+                        id = 4;
+                        break;
+                    case R.id.radioHandWriting:
+                        id = 5;
+                        break;
+                }
+
+                // TODO: Factor out Macro into Constants
+                final int MODE_INFO = 512;
+
+                sendResult(Integer.toString(id + MODE_INFO));
+
                 // TODO: Add smoothly animated transition?
+                // When debug, do not close
                 handler.postDelayed(r, 500);
             }
         });
+    }
 
+    private void sendResult(String message) {
+        Intent intent = new Intent(SERVICE_RESULT);
+        if (message != null) {
+            intent.putExtra(SERVICE_MESSAGE, message);
+        }
+        localBroadcastManager.sendBroadcast(intent);
     }
 }

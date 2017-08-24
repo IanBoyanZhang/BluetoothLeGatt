@@ -7,7 +7,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="ee32351109fd2092d84a359069ea82c6fcc4a2d1">
+        sha1="1ee4d540e5b8eae9f6706b1aae594d5fa1819280">
         <dex dex="/Users/ianzhang/MakerSquare/BluetoothLeGatt/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_83080605750061037c73bd2feba69f122821fd7c/classes.dex" />
     </item>
     <item
@@ -16,7 +16,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="510aa6efc159983dfbffa676a0dae37568c0a46f">
+        sha1="3be78ebc2706b2e1fe2f12d5726887a92d6c183b">
         <dex dex="/Users/ianzhang/MakerSquare/BluetoothLeGatt/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_940da8b28b0ca65748268b06a41d663bd099569b/classes.dex" />
     </item>
 

@@ -26,6 +26,7 @@ import android.content.IntentFilter;
 import android.content.ServiceConnection;
 import android.os.Bundle;
 import android.os.IBinder;
+import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
@@ -41,6 +42,7 @@ import java.util.List;
 import lab373.android.bluetoothlegatt.R;
 import lab373.android.bluetoothlegatt.data.SampleGattAttributes;
 import lab373.android.bluetoothlegatt.service.BluetoothLeService;
+import lab373.android.bluetoothlegatt.service.ModeOptions;
 
 
 /**
@@ -159,6 +161,11 @@ public class DeviceControlActivity extends AppCompatActivity {
         mDataField.setText(R.string.no_data);
     }
 
+    // For managing user selection on overlay
+    private BroadcastReceiver broadcastReceiver;
+    private final String SERVICE_RESULT = "com.service.result";
+    private final String SERVICE_MESSAGE = "com.service.message";
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -182,6 +189,36 @@ public class DeviceControlActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         Intent gattServiceIntent = new Intent(this, BluetoothLeService.class);
         bindService(gattServiceIntent, mServiceConnection, BIND_AUTO_CREATE);
+
+
+        // Listener to receive mode selection during on overlay
+
+        broadcastReceiver = new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context context, Intent intent) {
+                // TODO:
+                // String s = intent.getStringExtra(ModeOptions.SERVICE_MESS)
+                String s = intent.getStringExtra(SERVICE_MESSAGE);
+                // do something here.
+                // TODO: call bluetooth
+                mBluetoothLeService.writeCustomCharacteristic(Integer.parseInt(s));
+                Log.d(TAG, s);
+            }
+        };
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        LocalBroadcastManager.getInstance(this).registerReceiver((broadcastReceiver),
+                new IntentFilter(SERVICE_RESULT));
+        // new IntentFilter(ModeOptions.SERVICE_RESULT));
+    }
+
+    @Override
+    protected void onStop() {
+        LocalBroadcastManager.getInstance(this).unregisterReceiver(broadcastReceiver);
+        super.onStop();
     }
 
     @Override

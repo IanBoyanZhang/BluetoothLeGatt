@@ -39,6 +39,13 @@
             android:textSize="18sp"/>
 
         <RadioButton
+            android:id="@+id/radioGame"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/radio_game"
+            android:textSize="18sp"/>
+
+        <RadioButton
             android:id="@+id/radioThreeD"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
@@ -46,10 +53,10 @@
             android:textSize="18sp"/>
 
         <RadioButton
-            android:id="@+id/radioGame"
+            android:id="@+id/radioHandWriting"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="@string/radio_game"
+            android:text="@string/radio_hand_writing"
             android:textSize="18sp"/>
     </RadioGroup>
 

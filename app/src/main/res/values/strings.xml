@@ -33,4 +33,5 @@
     <string name="radio_media">Media</string>
     <string name="radio_three_d">3d</string>
     <string name="radio_game">Game</string>
+    <string name="radio_hand_writing">Hand Writing</string>
 </resources>
