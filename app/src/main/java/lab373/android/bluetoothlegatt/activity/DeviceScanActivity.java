@@ -39,6 +39,7 @@ import android.widget.Toast;
 import android.Manifest;
 
 import java.util.ArrayList;
+import java.util.Set;
 
 import lab373.android.bluetoothlegatt.R;
 import lab373.android.bluetoothlegatt.adapters.LeDeviceListAdapter;
@@ -154,8 +155,6 @@ public class DeviceScanActivity extends AppCompatActivity implements BluetoothAd
                 (BluetoothManager) getSystemService(Context.BLUETOOTH_SERVICE);
         mBluetoothAdapter = bluetoothManager.getAdapter();
 
-        mBluetoothAdapter.
-
         // Checks if Bluetooth is supported on the device.
         if (mBluetoothAdapter == null) {
             Toast.makeText(this, R.string.error_bluetooth_not_supported, Toast.LENGTH_SHORT).show();
@@ -190,7 +189,6 @@ public class DeviceScanActivity extends AppCompatActivity implements BluetoothAd
     public void onRefresh() {
         //this will be called when refresh layout is pulled down
         scanLeDevice(true);
-
     }
 
     @Override
@@ -298,6 +296,8 @@ public class DeviceScanActivity extends AppCompatActivity implements BluetoothAd
                 }
             }, SCAN_PERIOD);
             startScan();
+            // Enforce listing bonded devices
+            listBondedDevices();
         } else {
             stopScan();
         }
@@ -323,11 +323,29 @@ public class DeviceScanActivity extends AppCompatActivity implements BluetoothAd
         }
     }
 
-
     void stopScan(){
         if (mScanning) {
             mBluetoothAdapter.stopLeScan(this);
             mScanning = false;
+        }
+    }
+
+    /**
+     * Enforce listing bonded devices
+     */
+    void listBondedDevices() {
+        Set<BluetoothDevice> pairedDevices = mBluetoothAdapter.getBondedDevices();
+
+        if(pairedDevices.size() > 0) {
+            // There are paired devices. Get the name and address of each paired device.
+            for (BluetoothDevice device : pairedDevices) {
+                String deviceName = device.getName();
+                String deviceHardwareAddress = device.getAddress(); // MAC address
+
+                Log.d(TAG, "Device Name: " + deviceName);
+                Log.d(TAG, "Device Hardware Address: " + deviceHardwareAddress);
+                mLeDeviceListAdapter.addDevice(device);
+            }
         }
     }
 }
