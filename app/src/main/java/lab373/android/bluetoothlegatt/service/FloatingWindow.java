@@ -63,7 +63,7 @@ public class FloatingWindow extends Service {
                 height, //WindowManager.LayoutParams.WRAP_CONTENT,
                 //WindowManager.LayoutParams.TYPE_SYSTEM_ALERT,
                 // This constant was deprecated in API level O. for non-system apps. Use TYPE_APPLICATION_OVERLAY instead.
-                WindowManager.LayoutParams.TYPE_PHONE,
+                WindowManager.LayoutParams.TYPE_SYSTEM_OVERLAY,
                 //WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL,
                 WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL | WindowManager.LayoutParams.FLAG_WATCH_OUTSIDE_TOUCH,
                 // Not displaying keyboard on bg activity's EditText
