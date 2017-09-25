@@ -87,7 +87,7 @@ public class ModeOptions extends Service {
     private void moveView() {
         DisplayMetrics metrics = mContext.getResources().getDisplayMetrics();
         int width = (int) (metrics.widthPixels * 0.60f);
-        int height = (int) (metrics.heightPixels * 0.55f);
+        int height = (int) (metrics.heightPixels * 0.35f);
 
         mWindowsParams = new WindowManager.LayoutParams(
                 width,
