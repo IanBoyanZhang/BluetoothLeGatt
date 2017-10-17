@@ -18,6 +18,7 @@ package lab373.android.bluetoothlegatt.activity;
 
 import android.bluetooth.BluetoothGattCharacteristic;
 import android.bluetooth.BluetoothGattService;
+import android.bluetooth.BluetoothServerSocket;
 import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.Context;
@@ -117,7 +118,15 @@ public class DeviceControlActivity extends AppCompatActivity {
                 // Show all the supported services and characteristics on the user interface.
                 displayGattServices(mBluetoothLeService.getSupportedGattServices());
             } else if (BluetoothLeService.ACTION_DATA_AVAILABLE.equals(action)) {
-                displayData(intent.getStringExtra(BluetoothLeService.EXTRA_DATA));
+//                String receivedString = intent.getStringExtra(BluetoothLeService.EXTRA_DATA);
+                Bundle bundle = getIntent().getExtras();
+                byte[] receivedData;
+                receivedData = bundle.getByteArray(BluetoothLeService.EXTRA_DATA);
+                if (receivedData != null) {
+                    String str = new String(receivedData);
+                    displayData(str);
+                }
+                Log.d(TAG, "Received payload");
             }
         }
     };
@@ -259,6 +268,7 @@ public class DeviceControlActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        //WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL,
         switch(item.getItemId()) {
             case R.id.menu_connect:
                 mBluetoothLeService.connect(mDeviceAddress);
