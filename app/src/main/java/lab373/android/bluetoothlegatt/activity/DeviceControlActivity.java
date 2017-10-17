@@ -120,11 +120,16 @@ public class DeviceControlActivity extends AppCompatActivity {
             } else if (BluetoothLeService.ACTION_DATA_AVAILABLE.equals(action)) {
                 Bundle bundle = getIntent().getExtras();
                 byte[] receivedData;
+                int receivedInt;
                 if (bundle != null) {
                     receivedData = bundle.getByteArray(BluetoothLeService.EXTRA_DATA);
-                    if (receivedData != null) {
-                        Log.d(TAG, "Received payload");
-                        String str = new String(receivedData);
+                    receivedInt = bundle.getInt(BluetoothLeService.EXTRA_DATA, 0);
+//                    if (receivedData != null) {
+                    Log.d(TAG, "Received payload" + receivedInt);
+                    if (receivedInt > 0) {
+                        Log.d(TAG, "Received payload" + receivedInt);
+//                        String str = new String(receivedInt);
+                        String str = Integer.toString(receivedInt);
                         displayData(str);
                     }
                 }

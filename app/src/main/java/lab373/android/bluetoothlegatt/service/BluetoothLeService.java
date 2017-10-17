@@ -165,14 +165,14 @@ public class BluetoothLeService extends Service {
         } else {
             // For all other profiles, writes the data formatted in HEX.
             Bundle bundle = new Bundle();
-//            final byte[] data = characteristic.getValue();
-            final byte[] data = "0001012".getBytes();
-//            if (data != null && data.length > 0) {
-            if (data != null) {
+            final byte[] data = characteristic.getValue();
+            final int dummy_data = 9;
+            if (data != null && data.length > 0) {
               bundle.putByteArray(EXTRA_DATA, data);
 //                bundle.putByteArray(EXTRA_DATA, data);
 //                Log.d(TAG, "EXCUTED");
             }
+            bundle.putInt(EXTRA_DATA, dummy_data);
             intent.putExtras(bundle);
         }
         sendBroadcast(intent);
