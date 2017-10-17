@@ -173,12 +173,12 @@ public class BluetoothLeService extends Service {
 //            }
 
 //            Let's rebuild it with byte arrays
-            final Bundle bundle = new Bundle();
+//            final Bundle bundle = new Bundle();
             final byte[] data = characteristic.getValue();
             if (data != null && data.length > 0) {
-                bundle.putByteArray(EXTRA_DATA, data);
+//                bundle.putByteArray(EXTRA_DATA, data);
+                intent.putExtra(EXTRA_DATA, data);
             }
-            intent.putExtra(EXTRA_DATA, bundle);
         }
         sendBroadcast(intent);
     }
