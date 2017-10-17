@@ -43,6 +43,7 @@ import lab373.android.bluetoothlegatt.R;
 import lab373.android.bluetoothlegatt.data.SampleGattAttributes;
 import lab373.android.bluetoothlegatt.service.BluetoothLeService;
 import lab373.android.bluetoothlegatt.service.ModeOptions;
+import lab373.android.bluetoothlegatt.data.DeviceCodeTable;
 
 
 /**
@@ -379,6 +380,8 @@ public class DeviceControlActivity extends AppCompatActivity {
      */
     private void processPayload(String dataStr) {
         String msbStr = dataStr.substring(0, 5);
-        Log.d(TAG, msbStr);
+        if (msbStr.equals(DeviceCodeTable.lookup("EnableModeOption"))) {
+
+        }
     }
 }

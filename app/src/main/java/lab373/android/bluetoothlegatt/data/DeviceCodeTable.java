@@ -4,6 +4,18 @@ import java.util.HashMap;
  * Created by ianzhang on 10/17/17.
  */
 
+/**
+ * TODO: What's the default value if there is no device code found
+ */
 public class DeviceCodeTable {
-  public static HashMap<String, String> = new HashMap();
+  private static HashMap<String, String> deviceCodeTable = new HashMap();
+
+  static {
+    deviceCodeTable.put("EnableModeOption", "08 01");
+  }
+
+  public static String lookup(String key) {
+    String deviceCode = deviceCodeTable.get(key);
+    return deviceCode;
+  }
 }
