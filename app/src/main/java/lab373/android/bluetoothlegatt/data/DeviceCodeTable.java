@@ -11,7 +11,7 @@ public class DeviceCodeTable {
   private static HashMap<String, String> deviceCodeTable = new HashMap();
 
   static {
-    deviceCodeTable.put("EnableModeOption", "08 01");
+    deviceCodeTable.put("EnableModeOption", " 08 01");
   }
 
   public static String lookup(String key) {

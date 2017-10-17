@@ -16,6 +16,7 @@
 
 package lab373.android.bluetoothlegatt.activity;
 
+import android.app.Activity;
 import android.bluetooth.BluetoothGattCharacteristic;
 import android.bluetooth.BluetoothGattService;
 import android.content.BroadcastReceiver;
@@ -72,6 +73,8 @@ public class DeviceControlActivity extends AppCompatActivity {
 
     private final String LIST_NAME = "NAME";
     private final String LIST_UUID = "UUID";
+
+    private Activity mActivity;
 
     // Code to manage Service lifecycle.
     private final ServiceConnection mServiceConnection = new ServiceConnection() {
@@ -177,6 +180,8 @@ public class DeviceControlActivity extends AppCompatActivity {
         final Intent intent = getIntent();
         mDeviceName = intent.getStringExtra(EXTRAS_DEVICE_NAME);
         mDeviceAddress = intent.getStringExtra(EXTRAS_DEVICE_ADDRESS);
+
+        mActivity = this;
 
         // Sets up UI references.
 
@@ -376,12 +381,21 @@ public class DeviceControlActivity extends AppCompatActivity {
      * Command hub when processing
      * startIndex inclusive
      * endIndex exclusive
+     * TODO: Use switch for logic branching
      * @param dataStr
      */
     private void processPayload(String dataStr) {
         String msbStr = dataStr.substring(0, 5);
+        Log.d(TAG, " " + msbStr);
+        Log.d(TAG, "Boolean " + msbStr.equals(DeviceCodeTable.lookup("EnableModeOption")));
         if (msbStr.equals(DeviceCodeTable.lookup("EnableModeOption"))) {
-
+            openModeWindow();
         }
+    }
+
+    private void openModeWindow() {
+        Intent intent = new Intent(mActivity, ModeOptions.class);
+        mActivity.stopService(intent);
+        mActivity.startService(intent);
     }
 }
