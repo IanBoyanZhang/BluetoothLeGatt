@@ -117,7 +117,9 @@ public class DeviceControlActivity extends AppCompatActivity {
                 // Show all the supported services and characteristics on the user interface.
                 displayGattServices(mBluetoothLeService.getSupportedGattServices());
             } else if (BluetoothLeService.ACTION_DATA_AVAILABLE.equals(action)) {
-                displayData(intent.getStringExtra(BluetoothLeService.EXTRA_DATA));
+                String dataStr = intent.getStringExtra(BluetoothLeService.EXTRA_DATA);
+                displayData(dataStr);
+                processPayload(dataStr);
             }
         }
     };
@@ -367,5 +369,16 @@ public class DeviceControlActivity extends AppCompatActivity {
         if(mBluetoothLeService != null) {
             mBluetoothLeService.readCustomCharacteristic();
         }
+    }
+
+    /**
+     * Command hub when processing
+     * startIndex inclusive
+     * endIndex exclusive
+     * @param dataStr
+     */
+    private void processPayload(String dataStr) {
+        String msbStr = dataStr.substring(0, 5);
+        Log.d(TAG, msbStr);
     }
 }
