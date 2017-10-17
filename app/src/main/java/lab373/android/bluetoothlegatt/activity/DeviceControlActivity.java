@@ -118,14 +118,17 @@ public class DeviceControlActivity extends AppCompatActivity {
                 // Show all the supported services and characteristics on the user interface.
                 displayGattServices(mBluetoothLeService.getSupportedGattServices());
             } else if (BluetoothLeService.ACTION_DATA_AVAILABLE.equals(action)) {
-//                String receivedString = intent.getStringExtra(BluetoothLeService.EXTRA_DATA);
-                byte[] receivedData = getIntent().getByteArrayExtra(BluetoothLeService.EXTRA_DATA);
-//                receivedData = bundle.getByteArrayExtra(BluetoothLeService.EXTRA_DATA);
-                if (receivedData != null) {
-                    Log.d(TAG, "Received payload is not null");
-                    String str = new String(receivedData);
-                    displayData(str);
+                Bundle bundle = getIntent().getExtras();
+                byte[] receivedData;
+                if (bundle != null) {
+                    receivedData = bundle.getByteArray(BluetoothLeService.EXTRA_DATA);
+                    if (receivedData != null) {
+                        Log.d(TAG, "Received payload");
+                        String str = new String(receivedData);
+                        displayData(str);
+                    }
                 }
+
             }
         }
     };
