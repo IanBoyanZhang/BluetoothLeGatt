@@ -295,7 +295,9 @@ public class DeviceScanActivity extends AppCompatActivity implements BluetoothAd
                     invalidateOptionsMenu();
                 }
             }, SCAN_PERIOD);
-            startScan();
+//            Current user flow requires user pairs device in bluetooth first
+//            Then come into app to choose bonded device
+//            startScan();
             // Enforce listing bonded devices
             listBondedDevices();
         } else {
