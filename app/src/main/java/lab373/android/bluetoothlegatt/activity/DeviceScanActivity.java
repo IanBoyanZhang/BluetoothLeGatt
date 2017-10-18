@@ -175,6 +175,8 @@ public class DeviceScanActivity extends AppCompatActivity implements BluetoothAd
             return;
         }
 
+        listBondedDevices();
+
         swipeRefreshLayout.post(new Runnable() {
             @Override
             public void run() {
@@ -303,6 +305,7 @@ public class DeviceScanActivity extends AppCompatActivity implements BluetoothAd
         } else {
             stopScan();
         }
+        listBondedDevices();
         invalidateOptionsMenu();
     }
 

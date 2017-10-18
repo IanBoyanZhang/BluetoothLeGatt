@@ -45,6 +45,7 @@ import lab373.android.bluetoothlegatt.data.SampleGattAttributes;
 import lab373.android.bluetoothlegatt.service.BluetoothLeService;
 import lab373.android.bluetoothlegatt.service.ModeOptions;
 import lab373.android.bluetoothlegatt.data.DeviceCodeTable;
+import lab373.android.bluetoothlegatt.Utils;
 
 
 /**
@@ -205,11 +206,11 @@ public class DeviceControlActivity extends AppCompatActivity {
             @Override
             public void onReceive(Context context, Intent intent) {
                 // TODO:
-                // String s = intent.getStringExtra(ModeOptions.SERVICE_MESS)
                 String s = intent.getStringExtra(SERVICE_MESSAGE);
-                // do something here.
-                // TODO: call bluetooth
-                mBluetoothLeService.writeCustomCharacteristic(Integer.parseInt(s));
+                int id = Integer.parseInt(s);
+                byte[] bytes = { 0x02, (byte)id, 0x00, 0x00 };
+//                mBluetoothLeService.writeCustomCharacteristic(Integer.parseInt(s));
+                mBluetoothLeService.writeCustomCharacteristicHex(bytes);
                 Log.d(TAG, s);
             }
         };
@@ -366,8 +367,10 @@ public class DeviceControlActivity extends AppCompatActivity {
     }
 
     public void onClickWrite(View v){
+//      Test only
         if(mBluetoothLeService != null) {
-            mBluetoothLeService.writeCustomCharacteristic(0xAA);
+            byte[] bytes = { 0x01, 0x02, 0x03, 0x04 };
+            mBluetoothLeService.writeCustomCharacteristicHex(bytes);
         }
     }
 

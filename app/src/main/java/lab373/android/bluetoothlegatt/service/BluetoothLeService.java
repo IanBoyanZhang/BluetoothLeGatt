@@ -389,4 +389,22 @@ public class BluetoothLeService extends Service {
             Log.w(TAG, "Failed to write characteristic");
         }
     }
+
+    public void writeCustomCharacteristicHex(byte[] value) {
+        if (mBluetoothAdapter == null || mBluetoothGatt == null) {
+            Log.w(TAG, "BluetoothAdapter not initialized");
+            return;
+        }
+        BluetoothGattService mCustomService = mBluetoothGatt.getService(UUID_REPORT);
+        if(mCustomService == null){
+            Log.w(TAG, "Custom BLE Service not found");
+            return;
+        }
+        /*get the read characteristic from the service*/
+        BluetoothGattCharacteristic mWriteCharacteristic = mCustomService.getCharacteristic(UUID_CLIENT_CHAR);
+        mWriteCharacteristic.setValue(value);
+        if(mBluetoothGatt.writeCharacteristic(mWriteCharacteristic) == false){
+            Log.w(TAG, "Failed to write characteristic");
+        }
+    }
 }

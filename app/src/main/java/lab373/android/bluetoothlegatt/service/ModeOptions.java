@@ -186,9 +186,7 @@ public class ModeOptions extends Service {
                 }
 
                 // TODO: Factor out Macro into Constants
-                final int MODE_INFO = 512;
-
-                sendResult(Integer.toString(id + MODE_INFO));
+                sendResult(Integer.toString(id));
 
                 // TODO: Add smoothly animated transition?
                 // When debug, do not close
