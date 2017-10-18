@@ -382,12 +382,12 @@ public class DeviceControlActivity extends AppCompatActivity {
      * startIndex inclusive
      * endIndex exclusive
      * TODO: Use switch for logic branching
+     * TODO: Currently the Mode open flicks when triggered.
+     * How to resolve this issue?
      * @param dataStr
      */
     private void processPayload(String dataStr) {
         String msbStr = dataStr.substring(0, 5);
-        Log.d(TAG, " " + msbStr);
-        Log.d(TAG, "Boolean " + msbStr.equals(DeviceCodeTable.lookup("EnableModeOption")));
         if (msbStr.equals(DeviceCodeTable.lookup("EnableModeOption"))) {
             openModeWindow();
         }
