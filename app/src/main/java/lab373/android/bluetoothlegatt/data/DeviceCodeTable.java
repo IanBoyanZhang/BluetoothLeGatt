@@ -6,12 +6,14 @@ import java.util.HashMap;
 
 /**
  * TODO: What's the default value if there is no device code found
+ * TODO: find the right way to convert string to hex code
  */
 public class DeviceCodeTable {
   private static HashMap<String, String> deviceCodeTable = new HashMap();
 
   static {
     deviceCodeTable.put("EnableModeOption", "88 01");
+//    deviceCodeTable.put("SERVICE_MESSAGE_OP", "")
   }
 
   public static String lookup(String key) {
